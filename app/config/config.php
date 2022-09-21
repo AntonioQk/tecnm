@@ -17,7 +17,7 @@ define('USUARIO', 'id19600747_root');
 define('PASSWOD', 'XJ2ArN8C0k>gOk{w');
 define('BD', 'id19600747_sistema');
 
-//$URL = 'http://localhost/tecnm';
+$URL = 'http://localhost/tecnm';
 
 //$URL = 'mysql://utur7aovmczn6qtf:Pp83ju823IBh0nmPhQ9v@bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com:3306/bxgvbqru5r7prhsdpnvr';
 
