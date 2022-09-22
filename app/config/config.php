@@ -1,7 +1,7 @@
 <?php
-$conexion = mysqli_connect("bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com", "utur7aovmczn6qtf", "Pp83ju823IBh0nmPhQ9v", "bxgvbqru5r7prhsdpnvr");
+//$conexion = mysqli_connect("bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com", "utur7aovmczn6qtf", "Pp83ju823IBh0nmPhQ9v", "bxgvbqru5r7prhsdpnvr");
 
-
+$conexion = mysqli_connect("localhost", "root", "", "sistema");
 ?>
 
 <?php
@@ -12,14 +12,21 @@ $conexion = mysqli_connect("bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com
  * Time: 16:41
  */
 
+/*
 define('SERVIDOR', 'bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com');
 define('USUARIO', 'utur7aovmczn6qtf');
 define('PASSWOD', 'Pp83ju823IBh0nmPhQ9v');
 define('BD', 'bxgvbqru5r7prhsdpnvr');
+*/
+define('SERVIDOR', 'localhost');
+define('USUARIO', 'root');
+define('PASSWOD', '');
+define('BD', 'sistema');
 
 //$URL = 'http://localhost/tecnm';
 
-$URL = 'mysql://utur7aovmczn6qtf:Pp83ju823IBh0nmPhQ9v@bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com:3306/bxgvbqru5r7prhsdpnvr';
+//$URL = 'mysql://utur7aovmczn6qtf:Pp83ju823IBh0nmPhQ9v@bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com:3306/bxgvbqru5r7prhsdpnvr';
+$URL = 'http://localhost/tecnm';
 
 $servidor = "mysql:dbname=" . BD . ";host=" . SERVIDOR;
 
@@ -32,6 +39,7 @@ try {
 ?>
 
 <?php
+/*
 $server = "bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com";
 $user = "utur7aovmczn6qtf";
 $pass = "Pp83ju823IBh0nmPhQ9v";
@@ -51,11 +59,37 @@ try {
 } catch (PDOException $e) {
   echo "Error" . $e->getMessage();
 }
+*/
+$server = "localhost";
+$user = "root";
+$pass = "";
+$bd = "sistema";
 
+$conect = new mysqli($server, $user, $pass, $bd);
 ?>
 <?php
+$database = "sistema";
+$user = 'root';
+$password = '';
+
+
+try {
+
+  $con = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
+} catch (PDOException $e) {
+  echo "Error" . $e->getMessage();
+}
+?>
+<?php
+/*
 try {
   $bdd = new PDO('mysql:host=bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com;dbname=bxgvbqru5r7prhsdpnvr;charset=utf8', 'utur7aovmczn6qtf', 'Pp83ju823IBh0nmPhQ9v');
+} catch (Exception $e) {
+  die('Error : ' . $e->getMessage());
+}
+*/
+try {
+  $bdd = new PDO('mysql:host=localhost;dbname=sistema;charset=utf8', 'root', '');
 } catch (Exception $e) {
   die('Error : ' . $e->getMessage());
 }
