@@ -41,7 +41,7 @@ if (isset($_SESSION['u_usuario'])) {
 
   <head>
     <?php include('../layout/head.php'); ?>
-    <title>Agregar Credito Complementario</title>
+    <title>Agregar Crédito Complementario</title>
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -55,7 +55,7 @@ if (isset($_SESSION['u_usuario'])) {
         <section class="content-header">
           <h1>
             SISTEMA DE CREDITOS COMPLENTARIOS
-            <small>Agregar Credito Complementario</small>
+            <small>Agregar Crédito Complementario</small>
           </h1>
 
         </section>
@@ -70,8 +70,8 @@ if (isset($_SESSION['u_usuario'])) {
                 <thead>
                   <tr>
                     <th>Actividad</th>
-                    <th>Descripcion</th>
-                    <th>Credito por actividad</th>
+                    <th>Descripción</th>
+                    <th>Crédito por actividad</th>
                     <th>Maximo Acomular</th>
                     <th>Subir Archivo</th </tr>
                 </thead>

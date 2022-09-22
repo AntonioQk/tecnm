@@ -54,7 +54,7 @@ if (isset($_SESSION['u_usuario'])) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
+            SISTEMA DE CREDITOS COMPLEMENTARIOS
             <small>Agregar Credito Complementario</small>
           </h1>
 
@@ -63,7 +63,7 @@ if (isset($_SESSION['u_usuario'])) {
         <!-- Main content -->
         <section class="content">
           <div class="panel panel-primary">
-            <div class="panel-heading">Agregar Credito Complementario</div>
+            <div class="panel-heading">Agregar Crédito Complementario</div>
             <div class="panel-body">
               <!-- TABLA DE LAS ACTIVIDADES -->
               <table class="table table-bordered table-hover table-condensed">
@@ -71,16 +71,16 @@ if (isset($_SESSION['u_usuario'])) {
                 <thead>
                   <tr>
                     <th>Actividad</th>
-                    <th>Descripcion</th>
-                    <th>Credito por actividad</th>
-                    <th>Maximo Acomular</th>
-                    <th>Subir Archivo</th </tr>
+                    <th>Descripción</th>
+                    <th>Crédito por actividad</th>
+                    <th>Máximo acomular</th>
+                    <th>Subir archivo</th </tr>
                 </thead>
                 <!-- FILA 1 DE MODALIDAD ACADEMICA-->
                 <tr>
-                  <td>Movilidad Academica</td>
+                  <td>Movilidad Acádemica</td>
                   <td>Estancias en instituciones educativas de nivel superior,
-                    centros de investigacion, y empresas (al menos durante 4 Semanas Nacional</td>
+                    centros de investigación, y empresas (al menos durante 4 semanas nacional</td>
                   <td>1.0</td>
                   <td>2.0</td>
                   <td>
@@ -92,9 +92,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <!-- FILA 2 DE MODALIDAD ACADEMICA-->
 
                 <tr>
-                  <td>Movilidad Academica</td>
+                  <td>Movilidad Acádemica</td>
                   <td>Estancias en instituciones educativas de
-                    nivel superior, centros de investigacion,
+                    nivel superior, centros de investigación,
                     y empresas (al menos durante 4 Semanas
                     Internacional</td>
                   <td>2.0</td>
@@ -107,7 +107,7 @@ if (isset($_SESSION['u_usuario'])) {
 
                 <!-- FILA DE CONFERENCIA Y PLATICA -->
                 <tr>
-                  <td>Conferencia y/o Platica</td>
+                  <td>Conferencia y/o Plática</td>
                   <td>Asistencia o participación dentro o
                     fuera del instituto en cualquier nivel que se trate, (local, regional, Nacional)
                     relacionada con el profesional</td>
