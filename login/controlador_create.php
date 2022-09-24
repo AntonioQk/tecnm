@@ -5,10 +5,10 @@
 
 
 
-include ('../app/config/config.php');
+include('../app/config/config.php');
 
-$nombres=$_POST['nombres'];
-$numero_control=$_POST['numero_control'];
+$nombres = $_POST['nombres'];
+$numero_control = $_POST['numero_control'];
 $correo = $_POST['correo'];
 
 $contraseña = $_POST['contraseña'];
@@ -30,10 +30,10 @@ $contraseña = password_hash($contraseña, PASSWORD_DEFAULT, ['cost' => 10]);
 $inserta = "INSERT INTO tb_usuarios(nombres, numero_control, correo, contraseña, user_creacion, fyh_creacion, estado, cargo) VALUES ('$nombres', '$numero_control', '$correo', '$contraseña', '$user_creacion', '$fechaHora', '$estado', '$cargo')";
 
 $resultado = mysqli_query($conexion, $inserta);
-if (!$resultado){
-echo 'Error al registrarse';
-}else{
-    echo 'usuario registrado correctamente';
-    header('Location: ./index.php');
+if (!$resultado) {
+  echo 'Error al registrarse';
+} else {
+  echo 'usuario registrado correctamente';
+  header('Location: ../index.php');
 }
 mysqli_close($conexion);

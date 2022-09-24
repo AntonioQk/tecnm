@@ -1,130 +1,83 @@
-<?php
-include('app/config/config.php');
-session_start();
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicia Sesion</title>
+  <link rel="stylesheet" href="login/style.css" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
 
-if (isset($_SESSION['u_usuario'])) {
-  //echo "existe sesión";
-  //echo "bienvenido usuario";
-  $correo_sesion = $_SESSION['u_usuario'];
-  $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
-  $query_sesion->execute();
-  $sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
-  foreach ($sesion_usuarios as $sesion_usuario) {
-    $id_sesion = $sesion_usuario['id'];
-    $id_nombres = $sesion_usuario['nombres'];
-    $id_ap_paterno = $sesion_usuario['ap_paterno'];
-    $id_ap_materno = $sesion_usuario['ap_materno'];
-    $id_sexo = $sesion_usuario['sexo'];
-    $id_numero_control = $sesion_usuario['numero_control'];
-    $id_carrera = $sesion_usuario['carrera'];
-    $id_correo = $sesion_usuario['correo'];
-    $id_estado_civil = $sesion_usuario['estado_civil'];
-    $id_telefono = $sesion_usuario['telefono'];
-    $id_ciudad = $sesion_usuario['ciudad'];
-    $id_colonia = $sesion_usuario['colonia'];
-    $id_calle = $sesion_usuario['calle'];
-    $id_codigo_postal = $sesion_usuario['codigo_postal'];
-    $id_curp = $sesion_usuario['curp'];
-    $id_fecha_nacimiento = $sesion_usuario['fecha_nacimiento'];
-    $id_nivel_escolar = $sesion_usuario['nivel_escolar'];
-    $id_reticula = $sesion_usuario['reticula'];
-    $id_entidad = $sesion_usuario['entidad'];
-    $id_foto_perfil = $sesion_usuario['foto_perfil'];
-    $id_cargo = $sesion_usuario['cargo'];
-  }
-?>
+<body>
+  <div class="container">
+    <span class="big-circle"></span>
+    <img src="img/shape.png" class="square" alt="" />
+    <div class="form">
+      <div class="contact-info">
+        <h3 class="title">Bienvenido al Sistema de Creditos Complementarios
+        </h3>
+        <br>
+        <h3 class="title">TECNM Campus China
+        </h3>
+        <p class="text">
+          En esta Plataforma podras llevar un Registro y un Control de tus Creditos Academicos
+        </p>
 
-  <!DOCTYPE html>
-  <html lang="es">
+        <div class="info">
+          <div class="information">
+            <img src="img/location.png" class="icon" alt="" />
+            <p>Calle 11 S/N ENTRE 22 Y 28, CHINÁ, CAM. MÉXICO. C.P. 24520</p>
+          </div>
+          <div class="information">
+            <img src="img/email.png" class="icon" alt="" />
+            <p>dir01_china@tecnm.mx</p>
+          </div>
+          <div class="information">
+            <img src="img/phone.png" class="icon" alt="" />
+            <p>(981) 82 7 20 81, 82 y 52 Ext. 101 y 103</p>
+          </div>
+        </div>
 
-  <head>
-    <?php include('layout/head.php'); ?>
-    <title>Sistema de Farmacia - Usuario </title>
-  </head>
+        <div class="social-media">
+          <p>conecta con nosotros:</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/SomosTecNM/">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/TecNM_MX?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3ATecNM_MX&ref_url=https%3A%2F%2Fwww.itchina.edu.mx%2F">
+              <i class="fab fa-twitter"></i>
+            </a>
 
-  <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
-      <?php include('layout/menu.php'); ?>
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            SISTEMA DE FARMACIA - USUARIOS
-          </h1>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-
-          <div class="panel panel-primary">
-            <div class="panel-heading">Listado de Usuarios Activos</div>
-            <div class="panel-body">
-              <table border="1">
-                <tr>
-                  <td>Nombre Completo</td>
-                  <td><?php echo $id_nombres . " " . $id_ap_paterno . " " . $id_ap_materno; ?></td>
-                </tr>
-                <tr>
-                  <td>Numero de control</td>
-                  <td><?php echo $id_numero_control; ?></td>
-                </tr>
-                <tr>
-                  <td>Fecha nacimiento</td>
-                  <td><?php echo $id_fecha_nacimiento; ?></td>
-                </tr>
-                <tr>
-                  <td>Genero</td>
-                  <td><?php echo $id_sexo; ?></td>
-                </tr>
-                <tr>
-                  <td>ciudad</td>
-                  <td><?php echo $id_ciudad; ?></td>
-                </tr>
-                <tr>
-                  <td>Telefono</td>
-                  <td><?php echo $id_telefono; ?></td>
-                </tr>
-                <tr>
-                  <td>Código postal</td>
-                  <td><?php echo $id_codigo_postal; ?></td>
-                </tr>
-                <tr>
-                  <td>Foto Perfil</td>
-                  <td><?php echo $id_foto_perfil; ?></td>
-                </tr>
-                <tr>
-                  <td>correo institucional</td>
-                  <td><?php echo $id_correo; ?></td>
-                </tr>
-                <tr>
-                  <td>Carrera</td>
-                  <td><?php echo $id_carrera; ?></td>
-                </tr>
-              </table>
-              <a href=</div>
-            </div>
-
-        </section>
-        <!-- /.content -->
+          </div>
+        </div>
       </div>
-      <?php include('layout/footer.php'); ?>
+
+      <div class="contact-form">
+
+
+        <form action="login/controller_login.php" method="post" autocomplete="off">
+          <h3 class="title">Iniciar Sesion</h3>
+          <div class="input-container">
+            <input type="text" name="correo" class="input" required />
+            <label for="">Correo Institucional</label>
+            <span>Correo Institucional</span>
+          </div>
+          <div class="input-container">
+            <input type="password" name="contraseña" class="input" />
+            <label for="">Contraseña</label>
+            <span>Contrasela</span>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Ingresar" class="btn btn-primary btn-block">
+            <a href="login/registro.php" class="btn btn-default btn-block">Regisrarse</a>
+          </div>
+        </form>
+      </div>
     </div>
-    <?php include('layout/footer_links.php'); ?>
-  </body>
+  </div>
 
-  </html>
-<?php
+  <script src="login/app.js"></script>
+</body>
 
-
-
-
-} else {
-  echo "no existe sesión";
-  header('Location:' . $URL . '/login');
-}
-
-
-
-?>
+</html>

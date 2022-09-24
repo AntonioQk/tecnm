@@ -31,5 +31,5 @@
     }
   } else {
     echo "usuario no existe";
-    header('location:index.php');
+    header('location:../index.php');
   }
