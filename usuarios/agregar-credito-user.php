@@ -34,6 +34,7 @@ if (isset($_SESSION['u_usuario'])) {
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
 
+
 ?>
 
   <!DOCTYPE html>
@@ -99,9 +100,10 @@ if (isset($_SESSION['u_usuario'])) {
                     Internacional</td>
                   <td>2.0</td>
                   <td>2.0</td>
-                  <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#movilidad-academica2">
+                  <td><button type=" button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#movilidad-academica2">
                       Cargar Archivo
-                    </button></td>
+                    </button>
+                  </td>
                 </tr>
 
 
@@ -288,7 +290,23 @@ if (isset($_SESSION['u_usuario'])) {
                     <form action="cargas/movilidad-academica.php" method="post" enctype="multipart/form-data">
                       <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
                       <input type="number" name="id_actividad" value=1 style="display:none">
+                      <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
                       <input type="file" name="archivo">
+                      <br>
+                      <label for="responsable">Responsable de la actividad</label> <br>
+                      <select name="responsable" id="responsable">
+                        <?php
+                        $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                        $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                        ?>
+
+                        <?php foreach ($ejecutar as $opciones) : ?>
+
+                          <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                        <?php endforeach ?>
+                      </select>
                       <br><br>
                       <button class="btn btn-success">Subir Archivo</button>
                   </div>
@@ -314,7 +332,23 @@ if (isset($_SESSION['u_usuario'])) {
                   <form action="cargas/movilidad-academica.php" method="post" enctype="multipart/form-data">
                     <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
                     <input type="number" name="id_actividad" value=2 style="display:none">
+                    <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
                     <input type="file" name="archivo">
+                    <br>
+                    <label for="responsable">Responsable de la actividad</label> <br>
+                    <select name="responsable" id="responsable">
+                      <?php
+                      $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                      $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                      ?>
+
+                      <?php foreach ($ejecutar as $opciones) : ?>
+
+                        <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                      <?php endforeach ?>
+                    </select>
                     <br><br>
                     <button class="btn btn-success">Subir Archivo</button>
                 </div>
@@ -339,7 +373,23 @@ if (isset($_SESSION['u_usuario'])) {
               <form action="cargas/conferencia-platica.php" method="post" enctype="multipart/form-data">
                 <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
                 <input type="number" name="id_actividad" value=3 style="display:none">
+                <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
                 <input type="file" name="archivo">
+                <br>
+                <label for="responsable">Responsable de la actividad</label> <br>
+                <select name="responsable" id="responsable">
+                  <?php
+                  $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                  $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                  ?>
+
+                  <?php foreach ($ejecutar as $opciones) : ?>
+
+                    <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                  <?php endforeach ?>
+                </select>
                 <br><br>
                 <button class="btn btn-success">Subir Archivo</button>
             </div>
@@ -363,7 +413,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/congreso-seminario.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=4 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -387,7 +453,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/curso taller.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=5 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -411,7 +493,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Diplomado.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=6 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -436,7 +534,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=7 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -461,7 +575,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=8 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -486,7 +616,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=9 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -511,7 +657,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=10 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -536,7 +698,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=11 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -561,7 +739,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=12 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -586,7 +780,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=13 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -611,7 +821,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=14 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -636,7 +862,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=15 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -662,7 +904,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Prototipos.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=16 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -687,7 +945,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Software.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=17 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -712,7 +986,23 @@ if (isset($_SESSION['u_usuario'])) {
             <form action="cargas/Diseño-proyecto.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <input type="number" name="id_actividad" value=18 style="display:none">
+              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
               <input type="file" name="archivo">
+              <br>
+              <label for="responsable">Responsable de la actividad</label> <br>
+              <select name="responsable" id="responsable">
+                <?php
+                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+                $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                ?>
+
+                <?php foreach ($ejecutar as $opciones) : ?>
+
+                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                <?php endforeach ?>
+              </select>
               <br><br>
               <button class="btn btn-success">Subir Archivo</button>
           </div>
@@ -742,3 +1032,4 @@ if (isset($_SESSION['u_usuario'])) {
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
 }
+?>
