@@ -26,19 +26,19 @@
             if ($buscar == true) {
               // echo "existe foto de perfil";
             ?>
-              <img src="<?php echo $URL; ?>./usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
+              <img src="<?php echo $URL; ?>../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
               <?php
             } else {
               if ($id_sexo  == "HOMBRE") {
               ?>
 
-                <img src="<?php echo $URL; ?>./public/images/avatar_hombre.png" class="user-image" alt="User Image">
+                <img src="<?php echo $URL; ?>../public/images/avatar_hombre.png" class="user-image" alt="User Image">
 
               <?php
               } else {
               ?>
 
-                <img src="<?php echo $URL; ?>./public/images/avatar_mujer.png" class="user-image" alt="User Image">
+                <img src="<?php echo $URL; ?>../public/images/avatar_mujer.png" class="user-image" alt="User Image">
 
             <?php
               }
@@ -55,19 +55,19 @@
               if ($buscar == true) {
                 // echo "existe foto de perfil";
               ?>
-                <img src="<?php echo $URL; ?>./usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
+                <img src="<?php echo $URL; ?>../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
                 <?php
               } else {
                 if ($id_sexo  == "HOMBRE") {
                 ?>
 
-                  <img src="<?php echo $URL; ?>./public/images/avatar_hombre.png" class="user-image" alt="User Image">
+                  <img src="<?php echo $URL; ?>../public/images/avatar_hombre.png" class="user-image" alt="User Image">
 
                 <?php
                 } else {
                 ?>
 
-                  <img src="<?php echo $URL; ?>./public/images/avatar_mujer.png" class="user-image" alt="User Image">
+                  <img src="<?php echo $URL; ?>../public/images/avatar_mujer.png" class="user-image" alt="User Image">
 
               <?php
                 }
@@ -110,19 +110,19 @@
         if ($buscar == true) {
           // echo "existe foto de perfil";
         ?>
-          <img src="<?php echo $URL; ?>./usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
+          <img src="<?php echo $URL; ?>../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
           <?php
         } else {
           if ($id_sexo  == "HOMBRE") {
           ?>
 
-            <img src="<?php echo $URL; ?>./public/images/avatar_hombre.png" class="user-image" alt="User Image">
+            <img src="<?php echo $URL; ?>../public/images/avatar_hombre.png" class="user-image" alt="User Image">
 
           <?php
           } else {
           ?>
 
-            <img src="<?php echo $URL; ?>./public/images/avatar_mujer.png" class="user-image" alt="User Image">
+            <img src="<?php echo $URL; ?>../public/images/avatar_mujer.png" class="user-image" alt="User Image">
 
         <?php
           }
