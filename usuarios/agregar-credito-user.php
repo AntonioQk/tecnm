@@ -43,6 +43,7 @@ if (isset($_SESSION['u_usuario'])) {
   <head>
     <?php include('../layout/head.php'); ?>
     <title>Agregar Credito Complementario</title>
+    <link rel="stylesheet" href="../css/style_maestro.css">
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -294,7 +295,7 @@ if (isset($_SESSION['u_usuario'])) {
                       <input type="file" name="archivo">
                       <br>
                       <label for="responsable">Responsable de la actividad</label> <br>
-                      <select name="responsable" id="responsable">
+                      <select name="responsable" id="responsable" class="select_maestro">
                         <?php
                         $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                         $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -308,9 +309,9 @@ if (isset($_SESSION['u_usuario'])) {
                         <?php endforeach ?>
                       </select>
                       <br><br>
-                      <button class="btn btn-success">Subir Archivo</button>
                   </div>
                   <div class="modal-footer">
+                    <button class="btn btn-success">Subir Archivo</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                   </div>
                   </form>
@@ -336,7 +337,7 @@ if (isset($_SESSION['u_usuario'])) {
                     <input type="file" name="archivo">
                     <br>
                     <label for="responsable">Responsable de la actividad</label> <br>
-                    <select name="responsable" id="responsable">
+                    <select name="responsable" id="responsable" class="select_maestro">
                       <?php
                       $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                       $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -350,9 +351,9 @@ if (isset($_SESSION['u_usuario'])) {
                       <?php endforeach ?>
                     </select>
                     <br><br>
-                    <button class="btn btn-success">Subir Archivo</button>
                 </div>
                 <div class="modal-footer">
+                  <button class="btn btn-success">Subir Archivo</button>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
                 </form>
@@ -377,7 +378,7 @@ if (isset($_SESSION['u_usuario'])) {
                 <input type="file" name="archivo">
                 <br>
                 <label for="responsable">Responsable de la actividad</label> <br>
-                <select name="responsable" id="responsable">
+                <select name="responsable" id="responsable" class="select_maestro">
                   <?php
                   $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                   $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -391,9 +392,9 @@ if (isset($_SESSION['u_usuario'])) {
                   <?php endforeach ?>
                 </select>
                 <br><br>
-                <button class="btn btn-success">Subir Archivo</button>
             </div>
             <div class="modal-footer">
+              <button class="btn btn-success">Subir Archivo</button>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
             </div>
             </form>
@@ -417,7 +418,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -431,9 +432,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -457,7 +458,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -471,9 +472,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -497,7 +498,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -511,9 +512,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -538,7 +539,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -552,9 +553,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -579,7 +580,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -593,9 +594,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -620,7 +621,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -634,9 +635,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -661,7 +662,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -675,9 +676,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -702,7 +703,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -716,9 +717,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -743,7 +744,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -757,9 +758,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -784,7 +785,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -798,9 +799,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -825,7 +826,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -839,9 +840,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -866,7 +867,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -880,9 +881,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -908,7 +909,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -922,9 +923,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -949,7 +950,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -963,9 +964,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
@@ -990,7 +991,7 @@ if (isset($_SESSION['u_usuario'])) {
               <input type="file" name="archivo">
               <br>
               <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable">
+              <select name="responsable" id="responsable" class="select_maestro">
                 <?php
                 $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -1004,9 +1005,9 @@ if (isset($_SESSION['u_usuario'])) {
                 <?php endforeach ?>
               </select>
               <br><br>
-              <button class="btn btn-success">Subir Archivo</button>
           </div>
           <div class="modal-footer">
+            <button class="btn btn-success">Subir Archivo</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
           </form>
