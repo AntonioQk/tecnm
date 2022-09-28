@@ -145,6 +145,7 @@ $valor = null;
 
                     <div class="container_input">
                       <label for="actividad" class="label_input">Actividad:</label>
+                      <input type="text" name="maestro" id="maestro" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
                       <select name="actividad" id="select" class="input_2" required>
 
                       </select>
@@ -280,10 +281,12 @@ $valor = null;
 <script>
   function buscar_datos() {
     matricula_buscar = $("#matricula_buscar").val();
+    maestro = $("#maestro").val();
     //se manda la matricula al archivo php para buscar los datos enbase a esa matricula
     var parametros = {
       "buscar": "1",
-      "matricula_buscar": matricula_buscar
+      "matricula_buscar": matricula_buscar,
+      "maestro": maestro
     }; //fucnion que me manda esa matricula 
     $.ajax({
       data: parametros,

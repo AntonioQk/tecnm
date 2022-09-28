@@ -10,6 +10,7 @@ if (isset($_POST['buscar'])) {
   $valores['existe'] = "0";
   $actividad_array = array();
   $ruta_act = array();
+  $maestro = $_POST['maestro'];
 
 
   //consultar a la BD las actividades
@@ -23,7 +24,7 @@ if (isset($_POST['buscar'])) {
   //}
 
   //-----------------traer las actividades del alumno
-  $actividades = mysqli_query($conexion, "SELECT title, ruta_doc FROM actividades INNER JOIN evidencia ON actividades.id_act = evidencia.id_evento WHERE evidencia.numero_control = '$matricula_buscar'");
+  $actividades = mysqli_query($conexion, "SELECT title, ruta_doc FROM actividades INNER JOIN evidencia ON actividades.id_act = evidencia.id_evento WHERE evidencia.numero_control = '$matricula_buscar' and evidencia.responsable = '$maestro'");
   //$consulta2 = mysqli_fetch_array($actividades);
 
   while ($consulta2 = mysqli_fetch_array($actividades)) {
