@@ -2,16 +2,16 @@
 
 include('../app/config/config.php');
 
-if (isset($_POST['title']) && isset($_POST['descripcion']) && isset($_POST['start']) && isset($_POST['end']) && isset($_POST['color'])) {
+if (isset($_POST['title']) && isset($_POST['descripcion']) && isset($_POST['start']) && isset($_POST['end']) && isset($_POST['color']) && isset($_POST['respons'])) {
 
   $title = $_POST['title'];
   $descripcion = $_POST['descripcion'];
   $start = $_POST['start'];
   $end = $_POST['end'];
   $color = $_POST['color'];
-  $credito = $_POST['credito'];
+  $respons = $_POST['respons'];
 
-  $sql = "INSERT INTO events(title, descripcion, start, end, color, credito_act) values ('$title','$descripcion', '$start', '$end', '$color', '$credito')";
+  $sql = "INSERT INTO events(title, descripcion, start, end, color, respons) values ('$title','$descripcion', '$start', '$end', '$color', '$respons')";
 
   echo $sql;
 

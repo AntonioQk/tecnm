@@ -111,9 +111,21 @@ if (isset($_SESSION['u_usuario'])) {
                       </div>
 
                       <div class="form-group">
-                        <label for="credito" class="col-sm-2 control-label">Valor</label>
+                        <label for="respons" class="col-sm-2 control-label">Responsable</label>
                         <div class="col-sm-10">
-                          <input type="number" step=0.1 name="credito" class="form-control" id="credito" placeholder="0.0">
+                          <select name="respons" id="respons" class="form-control">
+                            <?php
+                            $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
+                            $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                            ?>
+
+                            <?php foreach ($ejecutar as $opciones) : ?>
+
+                              <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                            <?php endforeach ?>
+                          </select>
                         </div>
                       </div>
 
@@ -183,9 +195,21 @@ if (isset($_SESSION['u_usuario'])) {
                         </div>
 
                         <div class="form-group">
-                          <label for="credito" class="col-sm-2 control-label">Valor</label>
+                          <label for="respons" class="col-sm-2 control-label">Responsable</label>
                           <div class="col-sm-10">
-                            <input type="number" step=0.1 name="credito" class="form-control" id="credito">
+                            <select name="respons" id="respons" class="form-control">
+                              <?php
+                              $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
+                              $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                              ?>
+
+                              <?php foreach ($ejecutar as $opciones) : ?>
+
+                                <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                              <?php endforeach ?>
+                            </select>
                           </div>
                         </div>
 
@@ -274,7 +298,7 @@ if (isset($_SESSION['u_usuario'])) {
                     $('#ModalEdit #id').val(event.id);
                     $('#ModalEdit #descripcion_edit').val(event.descripcion);
                     $('#ModalEdit #title_edit').val(event.title);
-                    $('#ModalEdit #credito').val(event.credito);
+                    $('#ModalEdit #respons').val(event.respons);
                     $('#ModalEdit #color').val(event.color);
                     $('#ModalEdit').modal('show');
                   });
@@ -308,7 +332,7 @@ if (isset($_SESSION['u_usuario'])) {
                       id: '<?php echo $event['id']; ?>',
                       title: '<?php echo $event['title']; ?>',
                       descripcion: '<?php echo $event['descripcion']; ?>',
-                      credito: '<?php echo $event['credito_act']; ?>',
+                      respons: '<?php echo $event['respons']; ?>',
                       start: '<?php echo $start; ?>',
                       end: '<?php echo $end; ?>',
                       color: '<?php echo $event['color']; ?>',

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2022 a las 22:25:17
--- Versión del servidor: 10.4.24-MariaDB-log
--- Versión de PHP: 8.1.6
+-- Host: bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com:3306
+-- Generation Time: Sep 30, 2022 at 12:06 AM
+-- Server version: 8.0.22-13
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,24 +19,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `sistema`
+-- Database: `bxgvbqru5r7prhsdpnvr`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `actividades`
+-- Table structure for table `actividades`
 --
 
 CREATE TABLE `actividades` (
-  `id_act` int(10) NOT NULL,
+  `id_act` int NOT NULL,
   `title` varchar(100) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   `credito_activ` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Volcado de datos para la tabla `actividades`
+-- Dumping data for table `actividades`
 --
 
 INSERT INTO `actividades` (`id_act`, `title`, `descripcion`, `credito_activ`) VALUES
@@ -61,28 +62,28 @@ INSERT INTO `actividades` (`id_act`, `title`, `descripcion`, `credito_activ`) VA
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `constancias`
+-- Table structure for table `constancias`
 --
 
 CREATE TABLE `constancias` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `ciudadano` varchar(200) NOT NULL,
   `suscribe` varchar(200) NOT NULL,
   `alumno` varchar(200) NOT NULL,
-  `matricula` int(20) DEFAULT NULL,
+  `matricula` int DEFAULT NULL,
   `carrera` varchar(100) NOT NULL,
   `desempe` varchar(100) NOT NULL,
   `valor` double NOT NULL,
   `ciclo` varchar(20) DEFAULT NULL,
   `valorcurri` double NOT NULL,
   `ciudad` varchar(100) NOT NULL,
-  `dias` int(5) DEFAULT NULL,
+  `dias` int DEFAULT NULL,
   `MES` varchar(20) NOT NULL,
-  `anio` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `anio` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Volcado de datos para la tabla `constancias`
+-- Dumping data for table `constancias`
 --
 
 INSERT INTO `constancias` (`id`, `ciudadano`, `suscribe`, `alumno`, `matricula`, `carrera`, `desempe`, `valor`, `ciclo`, `valorcurri`, `ciudad`, `dias`, `MES`, `anio`) VALUES
@@ -98,21 +99,21 @@ INSERT INTO `constancias` (`id`, `ciudadano`, `suscribe`, `alumno`, `matricula`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `creditos`
+-- Table structure for table `creditos`
 --
 
 CREATE TABLE `creditos` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `matricula` varchar(10) DEFAULT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `act` varchar(150) DEFAULT NULL,
   `observacion` varchar(300) DEFAULT NULL,
-  `valor` int(3) DEFAULT NULL,
+  `valor` int DEFAULT NULL,
   `desmp` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Volcado de datos para la tabla `creditos`
+-- Dumping data for table `creditos`
 --
 
 INSERT INTO `creditos` (`id`, `matricula`, `nombre`, `act`, `observacion`, `valor`, `desmp`) VALUES
@@ -128,11 +129,11 @@ INSERT INTO `creditos` (`id`, `matricula`, `nombre`, `act`, `observacion`, `valo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `events`
+-- Table structure for table `events`
 --
 
 CREATE TABLE `events` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   `color` varchar(7) DEFAULT NULL,
@@ -142,7 +143,7 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `events`
+-- Dumping data for table `events`
 --
 
 INSERT INTO `events` (`id`, `title`, `descripcion`, `color`, `start`, `end`, `credito_act`) VALUES
@@ -152,51 +153,50 @@ INSERT INTO `events` (`id`, `title`, `descripcion`, `color`, `start`, `end`, `cr
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `evidencia`
+-- Table structure for table `evidencia`
 --
 
 CREATE TABLE `evidencia` (
-  `id` int(6) NOT NULL,
+  `id` int NOT NULL,
   `numero_control` varchar(10) NOT NULL,
-  `id_evento` int(6) NOT NULL,
-  `subido` int(2) NOT NULL,
-  `ruta_doc` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_evento` int NOT NULL,
+  `subido` int NOT NULL,
+  `ruta_doc` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `responsable` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Volcado de datos para la tabla `evidencia`
+-- Dumping data for table `evidencia`
 --
 
-INSERT INTO `evidencia` (`id`, `numero_control`, `id_evento`, `subido`, `ruta_doc`) VALUES
-(43, '19820001', 1, 1, 'Modalidad Academica/19820001Cu_Tarea1.pdf'),
-(44, '19820001', 3, 1, 'Conferencia Platica/19820001Cu_Tarea1.pdf'),
-(45, '19820001', 6, 1, 'Diplomado/19820001Cu_Tarea1.pdf'),
-(46, '19820001', 12, 1, 'Concurso de Creatividad e innovación/19820001Cu_Tarea1.pdf'),
-(47, '19820001', 16, 1, 'Diseño de Prototipos/19820001Cu_Tarea1.pdf'),
-(48, '19820001', 17, 1, 'Diseño de Software/19820001Cu_Tarea1.pdf'),
-(49, '19830012', 1, 1, 'Modalidad Academica/19830012Cu_Tarea1.pdf'),
-(50, '19820001', 5, 1, 'Curso o curso taller/19820001Investigación.pdf');
+INSERT INTO `evidencia` (`id`, `numero_control`, `id_evento`, `subido`, `ruta_doc`, `responsable`) VALUES
+(53, '19820001', 5, 1, 'Curso o curso taller/19820001-juan antonio-5-cursoTaller.pdf', 'cesar manuel'),
+(54, '19820001', 1, 1, 'Modalidad Academica/19820001-juan antonio-1-ModalidadAcadémica.pdf', 'cesar manuel'),
+(55, '19820001', 16, 1, 'Diseño de Prototipos/19820001-juan antonio-16-DiseñoPrototipos.pdf', 'Emmanuel '),
+(57, '19820001', 6, 1, 'Diplomado/19820001-juan antonio-6-Diplomado.pdf', 'jenner noel'),
+(58, '19820001', 14, 1, 'Concurso de emprendedurismo/19820001-juan antonio-14-ConcursoEmprendedurismo.pdf', 'jenner noel'),
+(59, '19820001', 12, 1, 'Concurso de Creatividad e innovación/19820001-juan antonio-12-CreatividadEinnovación.pdf', 'cesar manuel');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `jefes`
+-- Table structure for table `jefes`
 --
 
 CREATE TABLE `jefes` (
   `econo` varchar(200) NOT NULL,
   `ciencias` varchar(200) NOT NULL,
   `agrono` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tb_tutorias`
+-- Table structure for table `tb_tutorias`
 --
 
 CREATE TABLE `tb_tutorias` (
-  `id` int(255) NOT NULL,
+  `id` int NOT NULL,
   `nombres` varchar(100) DEFAULT NULL,
   `ap_paterno` varchar(100) DEFAULT NULL,
   `ap_materno` varchar(100) DEFAULT NULL,
@@ -204,10 +204,10 @@ CREATE TABLE `tb_tutorias` (
   `carrera` varchar(255) NOT NULL DEFAULT '',
   `estado` varchar(255) NOT NULL,
   `semestre` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Volcado de datos para la tabla `tb_tutorias`
+-- Dumping data for table `tb_tutorias`
 --
 
 INSERT INTO `tb_tutorias` (`id`, `nombres`, `ap_paterno`, `ap_materno`, `numero_control`, `carrera`, `estado`, `semestre`) VALUES
@@ -218,61 +218,61 @@ INSERT INTO `tb_tutorias` (`id`, `nombres`, `ap_paterno`, `ap_materno`, `numero_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tb_usuarios`
+-- Table structure for table `tb_usuarios`
 --
 
 CREATE TABLE `tb_usuarios` (
-  `id` int(11) NOT NULL,
-  `nombres` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `ap_paterno` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `ap_materno` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `sexo` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `numero_control` varchar(512) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `carrera` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `correo` varchar(512) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `estado_civil` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `telefono` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `ciudad` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `colonia` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `calle` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `codigo_postal` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `curp` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `fecha_nacimiento` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `nivel_escolar` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `reticula` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `entidad` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `foto_perfil` text COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `clave_oficial` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `contraseña` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `token` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `cargo` int(2) NOT NULL,
-  `extra1` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `extra2` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `extra3` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `user_creacion` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `user_actualizacion` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `user_eliminacion` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `id` int NOT NULL,
+  `nombres` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `ap_paterno` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `ap_materno` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `sexo` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `numero_control` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `carrera` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `correo` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `estado_civil` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `telefono` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `ciudad` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `colonia` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `calle` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `codigo_postal` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `curp` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `fecha_nacimiento` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `nivel_escolar` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `reticula` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `entidad` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `foto_perfil` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
+  `clave_oficial` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `contraseña` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `token` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `cargo` int NOT NULL,
+  `extra1` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `extra2` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `extra3` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `user_creacion` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `user_actualizacion` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `user_eliminacion` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `fyh_creacion` datetime DEFAULT NULL,
   `fyh_actualizacion` datetime DEFAULT NULL,
   `fyh_eliminacion` datetime DEFAULT NULL,
-  `estado` varchar(512) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `nombre` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `paterno` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `materno` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `profesion` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `cubiculo` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `area` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL
+  `estado` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `paterno` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `materno` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `profesion` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `cubiculo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `area` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
--- Volcado de datos para la tabla `tb_usuarios`
+-- Dumping data for table `tb_usuarios`
 --
 
 INSERT INTO `tb_usuarios` (`id`, `nombres`, `ap_paterno`, `ap_materno`, `sexo`, `numero_control`, `carrera`, `correo`, `estado_civil`, `telefono`, `ciudad`, `colonia`, `calle`, `codigo_postal`, `curp`, `fecha_nacimiento`, `nivel_escolar`, `reticula`, `entidad`, `foto_perfil`, `clave_oficial`, `contraseña`, `token`, `cargo`, `extra1`, `extra2`, `extra3`, `user_creacion`, `user_actualizacion`, `user_eliminacion`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`, `nombre`, `paterno`, `materno`, `profesion`, `cubiculo`, `area`) VALUES
 (2, 'DANIEL JESUS', 'PEREZ', 'MEX', 'Hombre', NULL, NULL, 'admin@gmail.com', NULL, '9811116798', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SisTECNM-2021-01-19-01-21-55_', NULL, '12345', NULL, 0, NULL, NULL, NULL, 'Administrador', NULL, NULL, '2021-01-19 01:21:55', NULL, NULL, '1', '', '', '', 'INGENIERO INFORMATICO', '78', 'INFORMATICA'),
 (26, 'manuel angel', NULL, NULL, NULL, '19830005', NULL, 'admini2@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$aP3SpNHwz1YlhJ26FB1xwOgCBZCD7vFfeg44ix5Wlt6B9inrJQ9lu', NULL, 0, NULL, NULL, NULL, 'ESCAMILLA', NULL, NULL, '2022-08-31 10:23:12', NULL, NULL, '1', '', '', '', '', '', ''),
 (16, 'ivana nicole', NULL, NULL, NULL, '16830185', NULL, 'alumno@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1234', NULL, 2, NULL, NULL, NULL, 'ESCAMILLA', NULL, NULL, '2021-01-30 06:27:25', NULL, NULL, '1', '', '', '', '', '', ''),
-(25, 'JUAN ANTONIO', 'cu', 'cauich', 'Hombre', '19820001', 'Ingeneria Informatica', 'alumno2@gmail.com', 'Soltero/a', '9811160488', 'Campeche', 'santa cruz', '23', '24520', 'CUCJ010304HCCXCNA9', '2001-03-04', 'superior', '19830001', 'campeche', 'SisTECNM-2022-09-06-06-55-20_', NULL, '$2y$10$STdLb4W4bYifYLNy685fu.9iVflDW2LZ/5e2nahVs93wFQULnnJHe', NULL, 2, NULL, NULL, NULL, 'ESCAMILLA', NULL, NULL, '2022-08-31 06:31:15', '2022-09-06 06:55:20', NULL, '1', '', '', '', '', '', ''),
+(25, 'juan antonio', 'cu', 'cauich', 'elegir', '19820001', 'elegir', 'alumno2@gmail.com', 'elegir', '9811160488', 'elegir', 'santa cruz', '23', '24520', 'CUCJ010304HCCXCNA9', '2001-03-04', 'superior', '19830001', 'campeche', 'SisTECNM-2022-09-27-10-44-50_blade-runner-2049_1920x1080_xtrafondos.com.jpg', NULL, '$2y$10$STdLb4W4bYifYLNy685fu.9iVflDW2LZ/5e2nahVs93wFQULnnJHe', NULL, 2, NULL, NULL, NULL, 'ESCAMILLA', NULL, NULL, '2022-08-31 06:31:15', '2022-09-27 10:44:50', NULL, '1', '', '', '', '', '', ''),
 (32, 'diana lizbeth', 'madrigal', 'benitez', 'Mujer', '19830012', 'Ingeneria Informatica', 'diana@gmai.com', 'Soltero/a', '9811127594', 'Campeche', 'concordia', '33', '24520', 'CUCJ010304HCCXCNA9', '2000-08-10', 'superior', '19830001', 'campeche', 'SisTECNM-2022-09-06-07-32-54_', NULL, '$2y$10$ruZ2x.tHHU.CHeajaxirBO9KIvQr3LkPhpqcyT2jeQWLPA38UmRay', NULL, 2, NULL, NULL, NULL, 'ESCAMILLA', NULL, NULL, '2022-09-06 07:32:54', NULL, NULL, '1', '', '', '', '', '', ''),
 (33, 'jenner noel', 'Che', 'Mendez', 'Hombre', NULL, NULL, 'jenner.cm@china.tecnm.mx', NULL, '9811127594', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SisTECNM-2022-09-06-07-35-42_', NULL, '$2y$10$ZLRflAZ5tqYpw7h6Ko5Mqe1E9X5vAFxPK9G.IgwjHLXPcctVVKXLG', NULL, 1, NULL, NULL, NULL, 'Administrador', NULL, NULL, '2022-09-06 07:35:42', NULL, NULL, '1', '', '', '', 'docente', '2', 'informatica'),
 (17, 'Emmanuel ', 'Escamilla', 'Moreno', 'Hombre', NULL, NULL, 'maestro@gmail.com', NULL, '981 181 8978', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SisTECNM-2021-01-30-07-05-11_', NULL, '12345', NULL, 1, NULL, NULL, NULL, 'Administrador', NULL, NULL, '2021-01-30 07:05:11', NULL, NULL, '1', '', '', '', 'INGENIERO INFORMATICO', '2', 'INFORMATICA'),
@@ -280,97 +280,97 @@ INSERT INTO `tb_usuarios` (`id`, `nombres`, `ap_paterno`, `ap_materno`, `sexo`, 
 (31, 'roger eliezer', 'perez', 'velazquez', 'Hombre', NULL, NULL, 'roger.pv@china.tecnm.mx', NULL, '9811127594', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SisTECNM-2022-09-06-07-22-36_', NULL, '$2y$10$E4gt7avTaUxAjPdG28hPcOwLuo58muPrwuBvXB2dmwyXjAPxyKh.a', NULL, 1, NULL, NULL, NULL, 'Administrador', NULL, NULL, '2022-09-06 07:22:36', NULL, NULL, '1', '', '', '', 'docente', '3', 'informatica');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `actividades`
+-- Indexes for table `actividades`
 --
 ALTER TABLE `actividades`
   ADD PRIMARY KEY (`id_act`);
 
 --
--- Indices de la tabla `constancias`
+-- Indexes for table `constancias`
 --
 ALTER TABLE `constancias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `creditos`
+-- Indexes for table `creditos`
 --
 ALTER TABLE `creditos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `events`
+-- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `evidencia`
+-- Indexes for table `evidencia`
 --
 ALTER TABLE `evidencia`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tb_tutorias`
+-- Indexes for table `tb_tutorias`
 --
 ALTER TABLE `tb_tutorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tb_usuarios`
+-- Indexes for table `tb_usuarios`
 --
 ALTER TABLE `tb_usuarios`
   ADD PRIMARY KEY (`correo`),
   ADD KEY `id` (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `actividades`
+-- AUTO_INCREMENT for table `actividades`
 --
 ALTER TABLE `actividades`
-  MODIFY `id_act` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_act` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de la tabla `constancias`
+-- AUTO_INCREMENT for table `constancias`
 --
 ALTER TABLE `constancias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `creditos`
+-- AUTO_INCREMENT for table `creditos`
 --
 ALTER TABLE `creditos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
--- AUTO_INCREMENT de la tabla `events`
+-- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `evidencia`
+-- AUTO_INCREMENT for table `evidencia`
 --
 ALTER TABLE `evidencia`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
--- AUTO_INCREMENT de la tabla `tb_tutorias`
+-- AUTO_INCREMENT for table `tb_tutorias`
 --
 ALTER TABLE `tb_tutorias`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `tb_usuarios`
+-- AUTO_INCREMENT for table `tb_usuarios`
 --
 ALTER TABLE `tb_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

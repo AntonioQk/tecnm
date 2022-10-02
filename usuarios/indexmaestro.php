@@ -2,6 +2,12 @@
 include('../app/config/config.php');
 session_start();
 
+/*
+$allowedRoles = [0];
+if (!array_key_exists('cargo', $_SESSION) || !in_array($_SESSION['cargo'], $allowdRoles)) {
+  header('Location: login.html');
+  die;
+}*/
 
 
 if (isset($_SESSION['u_usuario'])) {

@@ -91,7 +91,7 @@ $valor = null;
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
+            SISTEMA DE CREDITOS COMPLEMENTARIOS
             <small>Guia de Actividades Complementarias</small>
           </h1>
 

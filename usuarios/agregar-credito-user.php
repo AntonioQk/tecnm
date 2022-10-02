@@ -295,7 +295,7 @@ if (isset($_SESSION['u_usuario'])) {
                       <input type="file" name="archivo">
                       <br>
                       <label for="responsable">Responsable de la actividad</label> <br>
-                      <select name="responsable" id="responsable" class="select_maestro">
+                      <select name="responsable" id="responsable" class="form-control">
                         <?php
                         $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
                         $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
