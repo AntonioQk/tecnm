@@ -33,7 +33,7 @@ if (isset($_SESSION['u_usuario'])) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  $sql = "SELECT id, title, start, end, color FROM events ";
+  $sql = "SELECT id, title, descripcion, start, end, color, respons FROM events ";
 
   $req = $bdd->prepare($sql);
   $req->execute();
@@ -141,185 +141,203 @@ if (isset($_SESSION['u_usuario'])) {
 
 
             <!-- Modal -->
-            <!-- <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="editEventTitle.php">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Modificar Evento</h4>
-			  </div>
-			  <div class="modal-body">
-				
-				  <div class="form-group">
-					<label for="title" class="col-sm-2 control-label">Titulo</label>
-					<div class="col-sm-10">
-					  <input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
-					</div>
-				<div class="form-group">
-					<label for="descripcion" class="col-sm-2 control-label">descripcion</label>
-					<div class="col-sm-10">
-					  <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="descripcion">
-					</div>
-									
-				  </div>
-				  <div class="form-group">
-					<label for="color" class="col-sm-2 control-label">Color</label>
-					<div class="col-sm-10">
-					  <select name="color" class="form-control" id="color">
-						  <option value="">Seleccionar</option>
-						  <option style="color:#0071c5;" value="#0071c5">&#9724; Taller</option>
-						  <option style="color:#40E0D0;" value="#40E0D0">&#9724; Congreso</option>
-						  <option style="color:#008000;" value="#008000">&#9724; Actividad cultural</option>						  
-						  <option style="color:#FFD700;" value="#FFD700">&#9724; Actividad Deportiva</option>
-						  <option style="color:#FF8C00;" value="#FF8C00">&#9724; Entrega de documentacion</option>
-						  <option style="color:#FF0000;" value="#FF0000">&#9724; Urgente</option>
-						  <option style="color:#000;" value="#000">&#9724; Noticias</option>
-						  
-						</select>
-					</div>
-				  </div>
-				    <div class="form-group"> 
-						<div class="col-sm-offset-2 col-sm-10">
-						  <div class="checkbox">
-							<label class="text-danger"><input type="checkbox"  name="delete"> Eliminar Evento</label>
-						  </div>
-						</div>
-					</div>
-				  
-				  <input type="hidden" name="id" class="form-control" id="id">
-				
-				
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary">Guardar</button>
-			  </div>
-			</form>
-			</div>
-		  </div>
-		</div>
+            <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <form class="form-horizontal" method="POST" action="editEventTitle.php">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Detalles del evento</h4>
+                    </div>
+                    <div class="modal-body">
 
-    </div> -->
-            <!-- /.container -->
+                      <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">Titulo</label>
+                        <div class="col-sm-10">
+                          <input disabled type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="descripcion" class="col-sm-2 control-label">descripcion</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="descripcion" disabled>
+                        </div>
 
-            <!-- jQuery Version 1.11.1 -->
-            <script src="js/jquery.js"></script>
+                      </div>
+                      <div class="form-group">
+                        <label for="respons" class="col-sm-2 control-label">responsable</label>
+                        <div class="col-sm-10">
+                          <select name="respons" id="respons" class="form-control" disabled>
+                            <?php
+                            $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
+                            $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
-            <!-- Bootstrap Core JavaScript -->
-            <script src="js/bootstrap.min.js"></script>
+                            ?>
 
-            <!-- FullCalendar -->
-            <script src='js/moment.min.js'></script>
-            <script src='js/fullcalendar/fullcalendar.min.js'></script>
-            <script src='js/fullcalendar/fullcalendar.js'></script>
-            <script src='js/fullcalendar/locale/es.js'></script>
+                            <?php foreach ($ejecutar as $opciones) : ?>
+
+                              <option disabled value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                            <?php endforeach ?>
+                          </select>
+                        </div>
+
+                      </div>
+
+                      <div class="form-group">
+                        <label for="color" class="col-sm-2 control-label">Tipo de evento</label>
+                        <div class="col-sm-10">
+                          <select name="color" class="form-control" id="color" disabled>
+                            <option value="">Seleccionar</option>
+                            <option style="color:#0071c5;" value="#0071c5">&#9724; Modalidad Academica</option>
+                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o platica</option>
+                            <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
+                            <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
+                            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias basicas</option>
+                            <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovacion</option>
+                            <option style="color:#000;" value="#000">&#9724; Concurso de emprendedurismo</option>
+                            <option style="color:#0071c5;" value="#0071c5">&#9724; Diseño de prototipos</option>
+                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Diseño de software</option>
+                            <option style="color:#008000;" value="#008000">&#9724; Diseño de proyectos</option>
+
+                          </select>
+                        </div>
+                      </div>
+
+                      <input type="hidden" name="id" class="form-control" id="id">
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /.container -->
+
+          <!-- jQuery Version 1.11.1 -->
+          <script src="js/jquery.js"></script>
+
+          <!-- Bootstrap Core JavaScript -->
+          <script src="js/bootstrap.min.js"></script>
+
+          <!-- FullCalendar -->
+          <script src='js/moment.min.js'></script>
+          <script src='js/fullcalendar/fullcalendar.min.js'></script>
+          <script src='js/fullcalendar/fullcalendar.js'></script>
+          <script src='js/fullcalendar/locale/es.js'></script>
 
 
-            <script>
-              $(document).ready(function() {
+          <script>
+            $(document).ready(function() {
 
-                var date = new Date();
-                var yyyy = date.getFullYear().toString();
-                var mm = (date.getMonth() + 1).toString().length == 1 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
-                var dd = (date.getDate()).toString().length == 1 ? "0" + (date.getDate()).toString() : (date.getDate()).toString();
+              var date = new Date();
+              var yyyy = date.getFullYear().toString();
+              var mm = (date.getMonth() + 1).toString().length == 1 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
+              var dd = (date.getDate()).toString().length == 1 ? "0" + (date.getDate()).toString() : (date.getDate()).toString();
 
-                $('#calendar').fullCalendar({
-                  header: {
-                    language: 'es',
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,basicWeek,basicDay',
+              $('#calendar').fullCalendar({
+                header: {
+                  language: 'es',
+                  left: 'prev,next today',
+                  center: 'title',
+                  right: 'month,basicWeek,basicDay',
 
-                  },
-                  defaultDate: yyyy + "-" + mm + "-" + dd,
-                  editable: true,
-                  eventLimit: true, // allow "more" link when too many events
-                  selectable: true,
-                  selectHelper: true,
-                  select: function(start, end) {
+                },
+                defaultDate: yyyy + "-" + mm + "-" + dd,
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end) {
 
-                    $('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
-                    $('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
-                    $('#ModalAdd').modal('show');
-                  },
-                  eventRender: function(event, element) {
-                    element.bind('dblclick', function() {
-                      $('#ModalEdit #id').val(event.id);
-                      $('#ModalEdit #title').val(event.title);
-                      $('#ModalEdit #color').val(event.color);
-                      $('#ModalEdit').modal('show');
-                    });
-                  },
-                  eventDrop: function(event, delta, revertFunc) { // si changement de position
-
-                    edit(event);
-
-                  },
-                  eventResize: function(event, dayDelta, minuteDelta, revertFunc) { // si changement de longueur
-
-                    edit(event);
-
-                  },
-                  events: [
-                    <?php foreach ($events as $event) :
-
-                      $start = explode(" ", $event['start']);
-                      $end = explode(" ", $event['end']);
-                      if ($start[1] == '00:00:00') {
-                        $start = $start[0];
-                      } else {
-                        $start = $event['start'];
-                      }
-                      if ($end[1] == '00:00:00') {
-                        $end = $end[0];
-                      } else {
-                        $end = $event['end'];
-                      }
-                    ?> {
-                        id: '<?php echo $event['id']; ?>',
-                        title: '<?php echo $event['title']; ?>',
-                        start: '<?php echo $start; ?>',
-                        end: '<?php echo $end; ?>',
-                        color: '<?php echo $event['color']; ?>',
-                      },
-                    <?php endforeach; ?>
-                  ]
-                });
-
-                function edit(event) {
-                  start = event.start.format('YYYY-MM-DD HH:mm:ss');
-                  if (event.end) {
-                    end = event.end.format('YYYY-MM-DD HH:mm:ss');
-                  } else {
-                    end = start;
-                  }
-
-                  id = event.id;
-
-                  Event = [];
-                  Event[0] = id;
-                  Event[1] = start;
-                  Event[2] = end;
-
-                  $.ajax({
-                    url: 'editEventDate.php',
-                    type: "POST",
-                    data: {
-                      Event: Event
-                    },
-                    success: function(rep) {
-                      if (rep == 'OK') {
-                        alert('Evento se ha guardado correctamente');
-                      } else {
-                        alert('No se pudo guardar. Inténtalo de nuevo.');
-                      }
-                    }
+                  $('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
+                  $('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
+                  $('#ModalAdd').modal('show');
+                },
+                eventRender: function(event, element) {
+                  element.bind('dblclick', function() {
+                    $('#ModalEdit #id').val(event.id);
+                    $('#ModalEdit #title').val(event.title);
+                    $('#ModalEdit #descripcion').val(event.descripcion);
+                    $('#ModalEdit #respons').val(event.respons);
+                    $('#ModalEdit #color').val(event.color);
+                    $('#ModalEdit').modal('show');
                   });
+                },
+                eventDrop: function(event, delta, revertFunc) { // si changement de position
+
+                  edit(event);
+
+                },
+                eventResize: function(event, dayDelta, minuteDelta, revertFunc) { // si changement de longueur
+
+                  edit(event);
+
+                },
+                events: [
+                  <?php foreach ($events as $event) :
+
+                    $start = explode(" ", $event['start']);
+                    $end = explode(" ", $event['end']);
+                    if ($start[1] == '00:00:00') {
+                      $start = $start[0];
+                    } else {
+                      $start = $event['start'];
+                    }
+                    if ($end[1] == '00:00:00') {
+                      $end = $end[0];
+                    } else {
+                      $end = $event['end'];
+                    }
+                  ?> {
+                      id: '<?php echo $event['id']; ?>',
+                      title: '<?php echo $event['title']; ?>',
+                      descripcion: '<?php echo $event['descripcion']; ?>',
+                      start: '<?php echo $start; ?>',
+
+                      respons: '<?php echo $event['respons']; ?>',
+                      end: '<?php echo $end; ?>',
+                      color: '<?php echo $event['color']; ?>',
+                    },
+                  <?php endforeach; ?>
+                ]
+              });
+
+              function edit(event) {
+                start = event.start.format('YYYY-MM-DD HH:mm:ss');
+                if (event.end) {
+                  end = event.end.format('YYYY-MM-DD HH:mm:ss');
+                } else {
+                  end = start;
                 }
 
-              });
-            </script>
+                id = event.id;
+
+                Event = [];
+                Event[0] = id;
+                Event[1] = start;
+                Event[2] = end;
+
+                $.ajax({
+                  url: 'editEventDate.php',
+                  type: "POST",
+                  data: {
+                    Event: Event
+                  },
+                  success: function(rep) {
+                    if (rep == 'OK') {
+                      alert('Evento se ha guardado correctamente');
+                    } else {
+                      alert('No se pudo guardar. Inténtalo de nuevo.');
+                    }
+                  }
+                });
+              }
+
+            });
+          </script>
 
         </body>
 

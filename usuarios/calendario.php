@@ -33,7 +33,7 @@ if (isset($_SESSION['u_usuario'])) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  $sql = "SELECT id, title, descripcion, start, end, color, credito_act FROM events ";
+  $sql = "SELECT id, title, descripcion, start, end, color, respons FROM events ";
 
   $req = $bdd->prepare($sql);
   $req->execute();
@@ -134,13 +134,16 @@ if (isset($_SESSION['u_usuario'])) {
                         <div class="col-sm-10">
                           <select name="color" class="form-control" id="color">
                             <option value="">Seleccionar</option>
-                            <option style="color:#0071c5;" value="#0071c5">&#9724; Taller</option>
-                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Congreso</option>
-                            <option style="color:#008000;" value="#008000">&#9724; Actividad cultural</option>
-                            <option style="color:#FFD700;" value="#FFD700">&#9724; Actividad Deportiva</option>
-                            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Entrega de documentacion</option>
-                            <option style="color:#FF0000;" value="#FF0000">&#9724; Urgente</option>
-                            <option style="color:#000;" value="#000">&#9724; Noticias</option>
+                            <option style="color:#0071c5;" value="#0071c5">&#9724; Modalidad Academica</option>
+                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o platica</option>
+                            <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
+                            <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
+                            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias basicas</option>
+                            <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovacion</option>
+                            <option style="color:#000;" value="#000">&#9724; Concurso de emprendedurismo</option>
+                            <option style="color:#c0392b;" value="#c0392b">&#9724; Diseño de prototipos</option>
+                            <option style="color:#8e44ad;" value="#8e44ad">&#9724; Diseño de software</option>
+                            <option style="color:#2c3e50;" value="#2c3e50">&#9724; Diseño de proyectos</option>
 
                           </select>
                         </div>
@@ -186,61 +189,62 @@ if (isset($_SESSION['u_usuario'])) {
                         <div class="col-sm-10">
                           <input type="text" name="title_edit" class="form-control" id="title_edit" placeholder="Titulo">
                         </div>
-                        <div class="form-group">
-                          <label for="descripcion_edit" class="col-sm-2 control-label">descripcion</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="descripcion">
-                          </div>
-
+                      </div>
+                      <div class="form-group">
+                        <label for="descripcion_edit" class="col-sm-2 control-label">descripcion</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="descripcion">
                         </div>
-
-                        <div class="form-group">
-                          <label for="respons" class="col-sm-2 control-label">Responsable</label>
-                          <div class="col-sm-10">
-                            <select name="respons" id="respons" class="form-control">
-                              <?php
-                              $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
-                              $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
-
-                              ?>
-
-                              <?php foreach ($ejecutar as $opciones) : ?>
-
-                                <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
-
-                              <?php endforeach ?>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="color" class="col-sm-2 control-label">Color</label>
-                          <div class="col-sm-10">
-                            <select name="color" class="form-control" id="color">
-                              <option value="">Seleccionar</option>
-                              <option style="color:#0071c5;" value="#0071c5">&#9724; Taller</option>
-                              <option style="color:#40E0D0;" value="#40E0D0">&#9724; Congreso</option>
-                              <option style="color:#008000;" value="#008000">&#9724; Actividad cultural</option>
-                              <option style="color:#FFD700;" value="#FFD700">&#9724; Actividad Deportiva</option>
-                              <option style="color:#FF8C00;" value="#FF8C00">&#9724; Entrega de documentacion</option>
-                              <option style="color:#FF0000;" value="#FF0000">&#9724; Urgente</option>
-                              <option style="color:#000;" value="#000">&#9724; Noticias</option>
-
-                            </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                              <label class="text-danger"><input type="checkbox" name="delete"> Eliminar Evento</label>
-                            </div>
-                          </div>
-                        </div>
-
-                        <input type="hidden" name="id" class="form-control" id="id">
-
 
                       </div>
+
+                      <div class="form-group">
+                        <label for="respons" class="col-sm-2 control-label">Responsable</label>
+                        <div class="col-sm-10">
+                          <select name="respons" id="respons" class="form-control">
+                            <?php
+                            $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
+                            $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                            ?>
+
+                            <?php foreach ($ejecutar as $opciones) : ?>
+
+                              <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                            <?php endforeach ?>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="color" class="col-sm-2 control-label">Tipo de evento</label>
+                        <div class="col-sm-10">
+                          <select name="color" class="form-control" id="color">
+                            <option value="">Seleccionar</option>
+                            <option style="color:#0071c5;" value="#0071c5" name="modalidad">&#9724; Modalidad Academica</option>
+                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o platica</option>
+                            <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
+                            <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
+                            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias basicas</option>
+                            <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovacion</option>
+                            <option style="color:#000;" value="#000">&#9724; Concurso de emprendedurismo</option>
+                            <option style="color:#c0392b;" value="#c0392b">&#9724; Diseño de prototipos</option>
+                            <option style="color:#8e44ad;" value="#8e44ad">&#9724; Diseño de software</option>
+                            <option style="color:#2c3e50;" value="#2c3e50">&#9724; Diseño de proyectos</option>
+
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <div class="checkbox">
+                            <label class="text-danger"><input type="checkbox" name="delete"> Eliminar Evento</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <input type="hidden" name="id" class="form-control" id="id">
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Guardar</button>

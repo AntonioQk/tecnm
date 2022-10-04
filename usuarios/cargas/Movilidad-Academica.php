@@ -5,13 +5,15 @@ include('../../app/config/config.php');
 $nombre = $_FILES['archivo']['name'];
 $guardado = $_FILES['archivo']['tmp_name'];
 
-$id_act = $_POST['id_actividad'];
+$id_act = $_POST['evento'];
 
 $num_control = $_POST['numero_control'];
 
-$responsable = $_POST['responsable'];
+//$responsable = $_POST['responsable'];
 
-$nombre_alumno = $_POST['nombre_alumno'];
+$apellido = $_POST['ap_paterno'];
+
+
 
 /*
 if (!file_exists('Modalidad Academica')) {
@@ -50,12 +52,12 @@ if (!file_exists('Modalidad Academica')) {
 if (!file_exists('Modalidad Academica')) {
   mkdir('Modalidad Academica', 0777, true);
   if (file_exists('Modalidad Academica')) {
-    if (file_exists('Modalidad Academica/' . $num_control . '-' . $nombre_alumno . '-' . $id_act . '-' . 'ModalidadAcadémica.pdf')) {
+    if (file_exists('Modalidad Academica/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
       echo '<script language="javascript">alert("El archivo ya existe");window.location.href="../agregar-credito-user.php"</script>';
     } else {
-      if (move_uploaded_file($guardado, 'Modalidad Academica/' . $num_control . '-' . $nombre_alumno . '-' . $id_act . '-' . 'ModalidadAcadémica.pdf')) {
+      if (move_uploaded_file($guardado, 'Modalidad Academica/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
-        $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, responsable) VALUES ('$num_control', '$id_act', 1, 'Modalidad Academica/$num_control-$nombre_alumno-$id_act-ModalidadAcadémica.pdf', '$responsable')";
+        $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc) VALUES ('$num_control', '$id_act', 1, 'Modalidad Academica/$num_control-$apellido-$id_act.pdf')";
         $resultado = mysqli_query($conexion, $inserta);
         if (!$resultado) {
           echo 'Error al insertar archivo';
@@ -69,12 +71,12 @@ if (!file_exists('Modalidad Academica')) {
     }
   }
 } else {
-  if (file_exists('Modalidad Academica/' . $num_control . '-' . $nombre_alumno . '-' . $id_act . '-' . 'ModalidadAcadémica.pdf')) {
+  if (file_exists('Modalidad Academica/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
     echo '<script language="javascript">alert("El archivo ya existe");window.location.href="../agregar-credito-user.php"</script>';
   } else {
-    if (move_uploaded_file($guardado, 'Modalidad Academica/' . $num_control . '-' . $nombre_alumno . '-' . $id_act . '-' . 'ModalidadAcadémica.pdf')) {
+    if (move_uploaded_file($guardado, 'Modalidad Academica/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
-      $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, responsable) VALUES ('$num_control', '$id_act', 1, 'Modalidad Academica/$num_control-$nombre_alumno-$id_act-ModalidadAcadémica.pdf', '$responsable')";
+      $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc) VALUES ('$num_control', '$id_act', 1, 'Modalidad Academica/$num_control-$apellido-$id_act.pdf')";
       $resultado = mysqli_query($conexion, $inserta);
       if (!$resultado) {
         echo 'Error al insertar archivo';

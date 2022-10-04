@@ -145,7 +145,7 @@ $valor = null;
 
                     <div class="container_input">
                       <label for="actividad" class="label_input">Actividad:</label>
-                      <input type="text" name="maestro" id="maestro" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
+                      <input type="text" name="maestro" id="maestro" value="<?php echo $sesion_usuario['id'] ?>" style="display:none">
                       <select name="actividad" id="select" class="input_2" required>
 
                       </select>
