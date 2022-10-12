@@ -56,8 +56,6 @@ $sql = "INSERT INTO creditos (matricula,
 
 
 //ejecutamos sql
-
-$ejecutar = mysqli_query($conexion, $sql);
 //verificamos la ejecucion
 if (!$ejecutar) {
   echo 'Error al registrarse';

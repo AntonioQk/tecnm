@@ -20,6 +20,7 @@
   if (($correo == $correo_tabla) && (password_verify($contraseña, $contraseña_tabla))) {
     //echo "usuario correcto";
     $_SESSION['u_usuario'] = $correo;
+    $_SESSION['u_privilegio'] = $privilegio;
     //header('Location: ../usuarios/index.php');
 
     if ($privilegio == 0) {

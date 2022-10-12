@@ -1,7 +1,7 @@
 <?php
 include('../app/config/config.php');
 session_start();
-if (isset($_SESSION['u_usuario'])) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   $correo_sesion = $_SESSION['u_usuario'];
   $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
   $query_sesion->execute();

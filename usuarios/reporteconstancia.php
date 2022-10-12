@@ -52,15 +52,21 @@ PRESENTE.
 
 </html>
 <?php
-require_once 'dompdf/autoload.inc.php';
+$html = ob_get_clean();
+require_once './libreria/dompdf/autoload.inc.php';
 
 use Dompdf\Dompdf;
 
-$dompdf = new DOMPDF();
-$dompdf->load_html(ob_get_clean());
+$dompdf = new Dompdf;
+
+$options = $dompdf->getOptions();
+$options->set(array('isRemoteEnabled' => true));
+
+$dompdf->setOptions($options);
+
+$dompdf->loadHtml($html);
+$dompdf->setPaper('letter');
+
 $dompdf->render();
-$pdf = $dompdf->output();
-$filename = "constancia.pdf";
-file_put_contents($filename, $pdf);
-$dompdf->stream($filename);
+$dompdf->stream("archivo_.pdf", array("Attachment" => false));
 ?>

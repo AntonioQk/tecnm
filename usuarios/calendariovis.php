@@ -2,9 +2,7 @@
 include('../app/config/config.php');
 session_start();
 
-
-
-if (isset($_SESSION['u_usuario'])) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];
@@ -33,12 +31,14 @@ if (isset($_SESSION['u_usuario'])) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
+
   $sql = "SELECT id, title, start, descripcion, end, color, respons FROM events ";
 
   $req = $bdd->prepare($sql);
   $req->execute();
 
   $events = $req->fetchAll();
+
 
 
 ?>

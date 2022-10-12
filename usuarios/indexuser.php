@@ -2,9 +2,7 @@
 include('../app/config/config.php');
 session_start();
 
-
-
-if (isset($_SESSION['u_usuario'])) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];
