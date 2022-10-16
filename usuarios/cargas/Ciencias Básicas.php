@@ -23,7 +23,7 @@ if (!file_exists('Concurso de Ciencias Básicas')) {
       echo '<script language="javascript">alert("El archivo ya existe");window.location.href="../agregar-credito-user.php"</script>';
     } else {
       //Una vez que se confirmó que no se ha subido antes el archivo, se guarda el que se está subiendo a la carpeta que le corresponde
-      if (move_uploaded_file($guardado, 'Concurso de Ciencias Básicas/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
+      if (move_uploaded_file($guardado, './Concurso de Ciencias Básicas/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
         $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc) VALUES ('$num_control', '$id_act', 1, 'Concurso de Ciencias Básicas/$num_control-$apellido-$id_act.pdf')";
         $resultado = mysqli_query($conexion, $inserta);
@@ -44,7 +44,7 @@ if (!file_exists('Concurso de Ciencias Básicas')) {
     echo '<script language="javascript">alert("El archivo ya existe");window.location.href="../agregar-credito-user.php"</script>';
   } else {
     //Una vez que se confirmó que no se ha subido antes el archivo, se mueve el que se está subiendo a la carpeta que le corresponde
-    if (move_uploaded_file($guardado, 'Concurso de Ciencias Básicas/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
+    if (move_uploaded_file($guardado, './Concurso de Ciencias Básicas/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
       $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc) VALUES ('$num_control', '$id_act', 1, 'Concurso de Ciencias Básicas/$num_control-$apellido-$id_act.pdf')";
       $resultado = mysqli_query($conexion, $inserta);

@@ -100,7 +100,7 @@
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
   <!-- sidebar: style can be found in sidebar.less -->
-  <section class="sidebar">
+  <section class="sidebar sidebar-menu">
     <!-- Sidebar user panel -->
     <!-- <div class="user-panel">
       <div class="pull-left image">
@@ -137,31 +137,39 @@
 
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
-    <ul class="sidebar-menu">
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-users"></i> <span>AREA ACADEMICA</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="sidebar-menu treeview-menu">
 
 
-      <!-- <li class="header">Bienvenido</li> -->
+        <!-- <li class="header">Bienvenido</li> -->
 
 
 
-      <li class="treeview">
+        <li class="treeview">
 
 
 
 
-      <li class="header">Calendario de Actividades</li>
-      <li><a href="calendariovis.php"><i class="glyphicon glyphicon-calendar"></i> <span>Calendario</span></a></li>
-      <li class="header">talleres</li>
+        <li class="header">Calendario de Actividades</li>
+        <li><a href="calendariovis.php"><i class="glyphicon glyphicon-calendar"></i> <span>Calendario</span></a></li>
+        <li class="header">talleres</li>
 
 
-      <li class="header">Formatos</li>
-      <li><a href="guiamaestro.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guia de Actividades</span></a></li>
+        <li class="header">Formatos</li>
+        <li><a href="guiamaestro.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guia de Actividades</span></a></li>
 
-      <li class="header">Evaluciones</li>
-      <li><a href="evaluacionmaestro.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li>
+        <li class="header">Evaluciones</li>
+        <li><a href="evaluacionmaestro.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li>
 
 
-    </ul>
+      </ul>
+    </li>
 
   </section>
   <!-- /.sidebar -->
