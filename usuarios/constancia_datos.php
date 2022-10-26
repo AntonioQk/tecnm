@@ -15,7 +15,7 @@ if (isset($_POST['buscar'])) {
   $title = array();
 */
 
-  $resultados = mysqli_query($conexion, "SELECT nombre, observacion, desmp, valor, ruta_doc, credito, title FROM creditos INNER JOIN evidencia ON creditos.id_evento = evidencia.id_evento INNER JOIN events on creditos.id_evento = events.id WHERE creditos.matricula = '$matricula_buscar'");
+  $resultados = mysqli_query($conexion, "SELECT nombre, observacion, desmp, valor, ruta_doc, credito, title FROM creditos INNER JOIN evidencia INNER JOIN events ON creditos.id_evento = evidencia.id_evento WHERE evidencia.numero_control = '$matricula_buscar' AND creditos.id_evento = events.id");
   while ($consulta = mysqli_fetch_array($resultados)) {
     /*$nombre[] = $consulta['nombre'];
     $obs[] = $consulta['observacion'];

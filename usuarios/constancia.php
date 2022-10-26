@@ -107,7 +107,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
 
                 <p style="margin-top:20px">
-                  DRA. ELOINA GUADALUPE GONZÁLEZ LARA
+                  <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)">
                   <br>
 
                   Jefe(a) del Departamento de Servicios Escolares o su equivalente en los Institutos Tecnológicos Descentralizados
@@ -187,19 +187,21 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         //console.log(datos);
         const docs = document.getElementById("docs");
         const body_tabla = document.getElementById("body_table");
+        console.log(datos);
         datos.forEach(element => {
           //se crean los elementos tr y td de la tabla
           let tr = document.createElement('tr');
           let td1 = document.createElement('td');
 
           //se agregan los valores correspondientes en la posicion correspondiente de la tabla
-          td1.innerHTML = element[0];
+          td1.innerHTML = element['nombre'];
+          console.log(element['nombre']);
           let td2 = document.createElement('td');
-          td2.innerHTML = element[1];
+          td2.innerHTML = element['observacion'];
           let td3 = document.createElement('td');
-          td3.innerHTML = element[2];
+          td3.innerHTML = element['desmp'];
           let td4 = document.createElement('td');
-          td4.innerHTML = element[3];
+          td4.innerHTML = element['valor'];
           //PDFS---------------
           let div = document.createElement('div');
           div.style = "height:30px; margin-right:30px";
@@ -216,9 +218,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           div.appendChild(a);
           //-----------------
           let td5 = document.createElement('td');
-          td5.innerHTML = element[6];
+          td5.innerHTML = element['title'];
           let td6 = document.createElement('td');
-          td6.innerHTML = element[5];
+          td6.innerHTML = element['credito'];
           a.appendChild(td5);
           //se meten todos los td en el elemento tr
           tr.appendChild(td1);

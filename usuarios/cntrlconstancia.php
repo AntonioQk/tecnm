@@ -5,6 +5,7 @@ include('../app/config/config.php');
 
 //traemos las variables
 //$ciudadano = $_POST['ciudadano'];
+$jefe = $_POST['jefe'];
 $suscribe = $_POST['suscribe'];
 $alumno = $_POST['alumno'];
 $matricula = $_POST['matricula'];
@@ -23,6 +24,7 @@ $anio = date("Y");
 */
 //sentencia sql
 $sql = "INSERT INTO constancias(
+                                jefe,
                                 suscribe,
                                 alumno,
                                 matricula,
@@ -32,7 +34,8 @@ $sql = "INSERT INTO constancias(
                                 ciclo,
                                 valorcurri) 
                                 VALUES 
-                                ('$suscribe',
+                                ('$jefe',
+                                '$suscribe',
                                        '$alumno',
                                        '$matricula',
                                        '$carrera',
