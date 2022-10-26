@@ -4,7 +4,7 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>TECNM</b></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>CHINA</b>TECNM</span>
+    <span class="logo-lg">CHINÁ TECNM</span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
@@ -88,7 +88,7 @@
             <a href="../usuarios/perfil.php" class="btn btn-default btn-flat">Perfil</a>
           </div>
           <div class="pull-right">
-            <a href="../login/controller_cerrar_sesion.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
+            <a href="../login/controller_cerrar_sesion.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
           </div>
         </li>
       </ul>
@@ -139,7 +139,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-users"></i> <span>AREA ACADEMICA</span>
+        <i class="fa fa-users"></i> <span><b>ÁREA ACADÉMICA</b></span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
@@ -148,19 +148,19 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-users"></i> <span>Agregar Usuarios</span>
+            <i class="fa fa-users"></i> <span><b>Agregar usuarios</b></span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
 
-            <li><a href="lista-usuarios.php"><i class="fa fa-users"></i> Lista de Usuarios</a></li>
+            <li><a href="lista-usuarios.php"><i class="fa fa-users"></i> Lista de usuarios</a></li>
 
-            <li><a href="create.php"><i class="fa fa-user"></i> Agregar Alumno</a></li>
+            <li><a href="create.php"><i class="fa fa-user"></i> Añadir alumno</a></li>
 
 
-            <li><a href="create_usuario.php"><i class="fa fa-user"></i> Agregar Usuario</a></li>
+            <li><a href="create_usuario.php"><i class="fa fa-user"></i> Añadir usuario</a></li>
 
           </ul>
         </li>
@@ -168,17 +168,15 @@
 
 
         <li class="header">Calendario de Actividades</li>
-        <li><a href="calendario.php"><i class="glyphicon glyphicon-calendar"></i> <span>Calendario</span></a></li>
-        <li class="header">talleres</li>
-        <li><a href="talleres.php"><i></i> <span>Talleres</span></a></li>
+        <li><a href="calendario.php"><i class="glyphicon glyphicon-calendar"></i> <span><b>Calendario</b></span></a></li>
 
         <li class="header">Formatos</li>
-        <li><a href="guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guia de Actividades</span></a></li>
-        <li><a href="agregar-credito.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>
+        <li><a href="guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span><b>Guia de Actividades</b></span></a></li>
+        <!-- <li><a href="agregar-credito.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li> -->
         <li class="header">Evaluciones</li>
-        <li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li>
-        <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias</span></a></li>
-        <li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>
+        <!-- <li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
+        <li><a href="constancia.php"><i class="fa fa-book"></i> <span><b>Constancias</b></span></a></li>
+        <li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span><b>Generar Constancias</b></span></a></li>
         <li class="header">Tutorias</li>
         <li><a href="tutoria.php"><i class="fa fa-user"></i> <span>registro de tutoriados</span></a></li>
         <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de Tutorias</span></a></li>

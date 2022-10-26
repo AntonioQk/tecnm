@@ -10,6 +10,7 @@ if (isset($_POST['buscar'])) {
   $valores['existe'] = "0";
   $actividad_array = array();
   $ruta_act = array();
+  $evento_id = array();
   $maestro = $_POST['maestro'];
 
 
@@ -24,12 +25,13 @@ if (isset($_POST['buscar'])) {
   //}
 
   //-----------------traer las actividades del alumno
-  $actividades = mysqli_query($conexion, "SELECT title, ruta_doc FROM events INNER JOIN evidencia ON events.id = evidencia.id_evento WHERE evidencia.numero_control = '$matricula_buscar' and events.respons = '$maestro'");
+  $actividades = mysqli_query($conexion, "SELECT title, ruta_doc, id_evento FROM events INNER JOIN evidencia ON events.id = evidencia.id_evento WHERE evidencia.numero_control = '$matricula_buscar' and events.respons = '$maestro'");
   //$consulta2 = mysqli_fetch_array($actividades);
 
   while ($consulta2 = mysqli_fetch_array($actividades)) {
     $actividad_array[] = $consulta2['title'];
     $ruta_act[] = $consulta2['ruta_doc'];
+    $evento_id[] = $consulta2['id_evento'];
   }
 
   //----------------------traer el nombre del alumno
@@ -41,6 +43,7 @@ if (isset($_POST['buscar'])) {
     $valores['ap_materno'] = $consulta['ap_materno'];
     $valores['actividades'] = $actividad_array;
     $valores['ruta'] = $ruta_act;
+    $valores['id_evento'] = $evento_id;
     $valores = json_encode($valores);
     echo $valores;
   }

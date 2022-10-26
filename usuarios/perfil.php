@@ -63,7 +63,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          SISTEMA DE CREDITOS COMPLENTARIOS
+          SISTEMA DE CRÉDITOS COMPLEMENTARIOS
           <small>Perfil</small>
         </h1>
 
@@ -84,7 +84,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
+                        <label for=""><i class="glyphicon glyphicon-user"></i> Nombre(s)</label>
                         <input type="text" class="form-control" name="nombres" type="text" value="<?php echo $sesion_usuario['nombres']; ?>" required>
                       </div>
                       <div class="form-group">
@@ -92,7 +92,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                         <input type="text" class="form-control" name="ap_materno" value="<?php echo $sesion_usuario['ap_materno']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-check"></i> Numero de Control</label>
+                        <label for=""><i class="glyphicon glyphicon-check"></i> Número de Control</label>
                         <input type="text" class="form-control" name="numero_control" value="<?php echo $sesion_usuario['numero_control']; ?>" required>
                       </div>
                       <div class="form-group">
@@ -100,11 +100,11 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                         <input type="email" class="form-control" name="correo" value="<?php echo $sesion_usuario['correo']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de nacimiento</label>
+                        <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de Nacimiento</label>
                         <input type="date" class="form-control" name="fecha_nacimiento" value="<?php echo $sesion_usuario['fecha_nacimiento']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
+                        <label for=""><i class="glyphicon glyphicon-phone"></i> Teléfono</label>
                         <input type="text" class="form-control" name="telefono" value="<?php echo $sesion_usuario['telefono']; ?>" required>
                       </div>
                       <div class="form-group">
@@ -112,7 +112,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                         <input type="text" class="form-control" name="colonia" value="<?php echo $sesion_usuario['colonia']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-equalizer"></i> Codigo Postal</label>
+                        <label for=""><i class="glyphicon glyphicon-equalizer"></i> Código Postal</label>
                         <input type="text" class="form-control" name="codigo_postal" value="<?php echo $sesion_usuario['codigo_postal']; ?>" required>
                       </div>
                       <div class="form-group">
@@ -237,7 +237,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                       <br>
                       <div class="form-group">
                         <center>
-                          <a href="index.php" class="btn btn-danger btn-lg">Cancelar</a>
+                          <a href="../index.php" class="btn btn-danger btn-lg">Cancelar</a>
                           <input type="submit" class="btn btn-primary btn-lg" value="Actualizar">
                         </center>
                       </div>

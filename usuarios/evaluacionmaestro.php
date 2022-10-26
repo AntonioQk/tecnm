@@ -308,12 +308,14 @@ $valor = null;
 
         const select = document.getElementById("select");
         //aqui se recorreo el array donde se encuentran las actividades del alumno y se crea un option por actividad en el select correspondiente
+        let i = 0;
         actividad.forEach(element => {
           let option = document.createElement('option');
           option.innerHTML = element;
-          option.value = element;
+          option.value = valores.id_evento[i];
           select.appendChild(option);
           console.log(element);
+          i++;
         });
 
         const pdf_container = document.getElementById("contenedor_pdfs");
@@ -355,4 +357,8 @@ $valor = null;
 
 
   };
+  /*
+    function credito(event_id) {
+      <?php ?>
+    }*/
 </script>

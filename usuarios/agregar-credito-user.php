@@ -290,6 +290,16 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                   <div class="modal-body">
                     <form action="cargas/movilidad-academica.php" method="post" enctype="multipart/form-data">
                       <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+                      <?php
+                      $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '1'";
+                      $res = mysqli_query($conexion, $consulta1)  ?>
+                      <?php foreach ($res as $opcion) : ?>
+
+                        <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+                      <?php endforeach ?>
+
                       <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
                       <input type="file" name="archivo" required>
                       <br>
@@ -336,6 +346,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                 <div class="modal-body">
                   <form action="cargas/movilidad-academica.php" method="post" enctype="multipart/form-data">
                     <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+                    <?php
+                    $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '2'";
+                    $res = mysqli_query($conexion, $consulta1)  ?>
+                    <?php foreach ($res as $opcion) : ?>
+
+                      <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+                    <?php endforeach ?>
                     <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
                     <input type="file" name="archivo" required>
                     <br>
@@ -381,6 +400,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <div class="modal-body">
               <form action="cargas/conferencia-platica.php" method="post" enctype="multipart/form-data">
                 <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+                <?php
+                $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '3'";
+                $res = mysqli_query($conexion, $consulta1)  ?>
+                <?php foreach ($res as $opcion) : ?>
+
+                  <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+                <?php endforeach ?>
                 <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
                 <input type="file" name="archivo" required>
                 <br>
@@ -425,6 +453,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/congreso-seminario.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '4'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -469,6 +506,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/curso taller.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '5'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -513,6 +559,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Diplomado.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '6'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -558,6 +613,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '7'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -602,6 +666,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '8'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -646,6 +719,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '9'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -691,6 +773,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '10'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -736,6 +827,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '11'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -781,6 +881,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '12'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -826,6 +935,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '13'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -871,6 +989,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '14'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -916,6 +1043,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '15'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -962,6 +1098,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Prototipos.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '16'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -1007,6 +1152,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Software.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '17'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>
@@ -1052,6 +1206,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <div class="modal-body">
             <form action="cargas/Diseño-proyecto.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
+              <?php
+              $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '18'";
+              $res = mysqli_query($conexion, $consulta1)  ?>
+              <?php foreach ($res as $opcion) : ?>
+
+                <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none">
+
+
+              <?php endforeach ?>
               <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
               <input type="file" name="archivo" required>
               <br>

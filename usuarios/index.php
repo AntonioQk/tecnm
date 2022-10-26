@@ -44,23 +44,26 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   <head>
     <?php include('../layout/head.php'); ?>
     <title>Inicio</title>
+    <link rel="stylesheet" href="../css/styleindex.css">
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
       <?php include('../layout/menu.php'); ?>
 
+      <!-- CAMBIOS 20/OCT (index de todos) -->
 
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper containerTitulo">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
-            <small>Inicio</small>
+
+          <h1 class="titulo">
+            SISTEMA DE CRÉDITOS COMPLEMENTARIOS
           </h1>
 
         </section>
+        <img src="../images/itchina-1.jpg" alt="" class="itchina">
       </div>
       <?php include('../layout/footer.php'); ?>
     </div>

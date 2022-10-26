@@ -42,17 +42,17 @@ $obs = $_POST['obs'];
 //sentencia sql
 $sql = "INSERT INTO creditos (matricula,
                                 nombre,
-                                act,
                                 observacion,
                                 valor,
-                                desmp) 
+                                desmp,
+                                id_evento) 
                                 VALUES 
                                 ('$matricula',
                                        '$nombre',
-                                       '$actividad',
                                        '$obs',
                                        '$resultado',
-                                       '$valor')";
+                                       '$valor',
+                                       '$actividad')";
 
 
 //ejecutamos sql
