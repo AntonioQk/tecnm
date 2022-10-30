@@ -163,6 +163,10 @@
 
         <li><a href="agregar-credito-user.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>
 
+        <li class="header">Evaluacion</li>
+
+        <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Generar Constancia</b></span></a></li>
+
       </ul>
     </li>
 
