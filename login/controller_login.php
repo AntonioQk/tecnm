@@ -14,7 +14,7 @@
   $usuarios = $query_login->fetchAll(PDO::FETCH_ASSOC);
   foreach ($usuarios as $usuario) {
     $correo_tabla = $usuario['correo'];
-    $contraseña_tabla = $usuario['contraseña'];
+    $contraseña_tabla = $usuario['contrasenia'];
     $privilegio = $usuario['cargo'];
   }
   if (($correo == $correo_tabla) && (password_verify($contraseña, $contraseña_tabla))) {

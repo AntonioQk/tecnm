@@ -23,8 +23,8 @@ $codigo_postal = $_POST['codigo_postal'];
 $curp = $_POST['curp'];
 $fecha_nacimiento = $_POST['fecha_nacimiento'];
 //$nivel_escolar = $_POST['nivel_escolar'];
-$reticula = $_POST['reticula'];
-$entidad = $_POST['entidad'];
+//$reticula = $_POST['reticula'];
+//$entidad = $_POST['entidad'];
 $contraseña = $_POST['contraseña'];
 $user_creacion = "ESCAMILLA";
 
@@ -44,13 +44,20 @@ $location = "update_usuarios/" . $filename;
 move_uploaded_file($_FILES['file']['tmp_name'], $location);
 //echo $nombres ." - ".$ap_paterno." - ".$ap_materno." - ".$sexo." - ".$numero_control." - ".$carrera." - ".$correo." - ".$estado_civil." - ".$telefono." - ".$ciudad." - ".$colonia." - ".$calle." - ".$codigo_postal." - ".$curp." - ".$fecha_nacimiento." - ".$nivel_escolar." - ".$reticula." - ".$entidad." - ".$contraseña." - ".$user_creacion. " - ".$fechaHora." - ".$estado;
 
-$inserta = "INSERT INTO tb_usuarios (nombres, ap_paterno, ap_materno, sexo, numero_control, carrera, correo, estado_civil, telefono, ciudad, colonia, calle, codigo_postal, curp, fecha_nacimiento, reticula, entidad, foto_perfil, contraseña, cargo, user_creacion, fyh_creacion, estado) VALUES ('$nombres', '$ap_paterno', '$ap_materno', '$sexo', '$numero_control', '$carrera', '$correo', '$estado_civil', '$telefono', '$ciudad', '$colonia', '$calle', '$codigo_postal', '$curp', '$fecha_nacimiento', '$reticula', '$entidad', '$filename', '$contraseña', '2', '$user_creacion', '$fechaHora', '$estado')";
-
-$resultado = mysqli_query($conexion, $inserta);
+$inserta = "INSERT INTO tb_usuarios (nombres, ap_paterno, ap_materno, sexo, numero_control, carrera, correo, estado_civil, telefono, ciudad, colonia, calle, codigo_postal, curp, fecha_nacimiento, foto_perfil, contrasenia, cargo, user_creacion, fyh_creacion, estado) VALUES ('$nombres', '$ap_paterno', '$ap_materno', '$sexo', '$numero_control', '$carrera', '$correo', '$estado_civil', '$telefono', '$ciudad', '$colonia', '$calle', '$codigo_postal', '$curp', '$fecha_nacimiento', '$filename', '$contraseña', 2, '$user_creacion', '$fechaHora', '$estado')";
+//Duplicate entry 'angel@gmail.com' for key 'tb_usuarios.PRIMARY'
+$resultado = mysqli_query($conexion, $inserta) or die(mysqli_error($conexion));
 if (!$resultado) {
-  echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="create.php"</script>';
+  if (mysqli_error($conexion) == "Duplicate entry '$correo' for key 'PRIMARY'") {
+    echo '<script language="javascript">alert("El usuario ya existe");window.location.href="create.php"</script>';
+  } else {
+    echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="create.php"</script>';
+  }
 } else {
 
   echo '<script language="javascript">alert("Usuario registrado");window.location.href="create.php"</script>';
 }
+
+
+
 mysqli_close($conexion);

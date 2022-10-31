@@ -41,7 +41,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
 
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      <?php include('../layout/menu.php'); ?>
+      <?php include('../layout/menuuser.php'); ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->

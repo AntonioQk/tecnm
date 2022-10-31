@@ -75,21 +75,21 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
-                          <input type="text" class="form-control" name="nombre" required tabindex="1">
+                          <input type="text" class="form-control" name="nombre" required tabindex="1" maxlength="30" style="text-transform:uppercase;">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Materno</label>
-                          <input type="text" class="form-control" name="materno" required tabindex="3">
+                          <input type="text" class="form-control" name="materno" required tabindex="3" maxlength="20" style="text-transform:uppercase;">
                         </div>
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-envelope"></i> Correo Institucional</label>
-                          <input type="email" class="form-control" name="correo" required tabindex="5">
+                          <input type="email" class="form-control" name="correo" required tabindex="5" maxlength="30">
                         </div>
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
-                          <input type="text" class="form-control" name="telefono" required tabindex="7">
+                          <input type="number" class="form-control" name="telefono" required tabindex="7" maxlength="10">
                         </div>
 
                         <div class="form-group">
@@ -104,11 +104,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Paterno</label>
-                          <input type="text" class="form-control" name="paterno" required tabindex="2">
+                          <input type="text" class="form-control" name="paterno" required tabindex="2" maxlength="20" style="text-transform:uppercase;">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Sexo</label>
-                          <select name="sexo" id="" class="form-control" tabindex="4">
+                          <select name="sexo" id="" class="form-control" tabindex="4" style="text-transform:uppercase;">
                             <option value="elegir">Elegir una Opcion</option>
                             <option value="Hombre">Hombre</option>
                             <option value="Mujer">Mujer</option>
@@ -117,7 +117,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-modal-window"></i>Tipo de Usuario</label>
-                          <select name="cargo" id="" class="form-control" required tabindex="6">
+                          <select name="cargo" id="" class="form-control" required tabindex="6" style="text-transform:uppercase;">
                             <option value="elegir"></option>
                             <option value="Administrador">Administrador</option>
                             <option value="Maestro">Maestro</option>
@@ -125,24 +125,31 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           </select>
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-link"></i> Profesion</label>
-                          <input type="text" class="form-control" name="profesion" required tabindex="8">
+                          <label for=""><i class="glyphicon glyphicon-link"></i> Nivel Académico</label>
+                          <input type="text" class="form-control" name="profesion" required tabindex="8" style="text-transform:uppercase;">
                         </div>
                       </div>
                       <div class="col-md-6">
 
+
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> Cubiculo</label>
-                          <input type="text" class="form-control" name="cubiculo" required tabindex="9">
-                        </div>
-                        <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-link"></i> Area</label>
-                          <input type="text" class="form-control" name="area" required tabindex="10">
+                          <label for=""><i class="glyphicon glyphicon-link"></i> Cargo</label>
+                          <!-- <input type="text" class="form-control" name="area" required tabindex="10"> -->
+                          <select name="area" id="" class="form-control" required tabindex="6" style="text-transform:uppercase;">
+                            <option value="elegir"></option>
+                            <option value="DOCENTE">DOCENTE</option>
+                            <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
+                            <option value="EXTERNO">EXTERNO</option>
+                          </select>
                         </div>
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-lock"></i> Contraseña</label>
-                          <input type="password" class="form-control" name="contraseña" required tabindex="11">
+                          <input type="password" class="form-control" name="contraseña" required tabindex="11" maxlength="15">
+                        </div>
+                        <div class="form-group">
+                          <label for=""><i class="glyphicon glyphicon-lock"></i> Confirmar Contraseña</label>
+                          <input type="password" class="form-control" required tabindex="11" maxlength="15">
                         </div>
 
                         <br>

@@ -27,7 +27,7 @@ $contraseña = password_hash($contraseña, PASSWORD_DEFAULT, ['cost' => 10]);
 
 //echo $nombres ." - ".$ap_paterno." - ".$ap_materno." - ".$sexo." - ".$numero_control." - ".$carrera." - ".$correo." - ".$estado_civil." - ".$telefono." - ".$ciudad." - ".$colonia." - ".$calle." - ".$codigo_postal." - ".$curp." - ".$fecha_nacimiento." - ".$nivel_escolar." - ".$reticula." - ".$entidad." - ".$contraseña." - ".$user_creacion. " - ".$fechaHora." - ".$estado;
 
-$inserta = "INSERT INTO tb_usuarios(nombres, numero_control, correo, contraseña, user_creacion, fyh_creacion, estado, cargo) VALUES ('$nombres', '$numero_control', '$correo', '$contraseña', '$user_creacion', '$fechaHora', '$estado', '$cargo')";
+$inserta = "INSERT INTO tb_usuarios(nombres, numero_control, correo, contrasenia, user_creacion, fyh_creacion, estado, cargo) VALUES ('$nombres', '$numero_control', '$correo', '$contraseña', '$user_creacion', '$fechaHora', '$estado', '$cargo')";
 
 $resultado = mysqli_query($conexion, $inserta);
 if (!$resultado) {

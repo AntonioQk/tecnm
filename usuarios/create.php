@@ -76,19 +76,19 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
-                          <input type="text" class="form-control" name="nombres" required tabindex="1">
+                          <input type="text" class="form-control" name="nombres" required tabindex="1" style="text-transform:uppercase;" maxlength="30">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Materno</label>
-                          <input type="text" class="form-control" name="ap_materno" required tabindex="3">
+                          <input type="text" class="form-control" name="ap_materno" required tabindex="3" style="text-transform:uppercase;" maxlength="20">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-check"></i> Numero de Control</label>
-                          <input type="text" class="form-control" name="numero_control" required tabindex="5">
+                          <input type="text" class="form-control" name="numero_control" required tabindex="5" maxlength="8">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-envelope"></i> Correo Institucional</label>
-                          <input type="email" class="form-control" name="correo" required tabindex="7">
+                          <input type="email" class="form-control" name="correo" required tabindex="7" maxlength="30">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de nacimiento</label>
@@ -96,20 +96,55 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
-                          <input type="text" class="form-control" name="telefono" required tabindex="11">
+                          <input type="text" class="form-control" name="telefono" required tabindex="11" maxlength="10">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-map-marker"></i> colonia</label>
-                          <input type="text" class="form-control" name="colonia" required tabindex="13">
+                          <input type="text" class="form-control" name="colonia" required tabindex="13" style="text-transform:uppercase;">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-equalizer"></i> Codigo Postal</label>
-                          <input type="text" class="form-control" name="codigo_postal" required tabindex="15">
+                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> Entidad Federativa</label>
+                          <select name="ciudad" class="form-control" required tabindex="15" style="text-transform:uppercase;">
+                            <option value="elegir">Elegir una Opcion</option>
+                            <option value="AGUASCALIENTES">Aguascalientes</option>
+                            <option value="BAJA CALIFORNIA">Baja California</option>
+                            <option value="BAJA CALIFORNIA SUR">Baja California Sur</option>
+                            <option value="CAMPECHE">Campeche</option>
+                            <option value="CHIAPAS">Chiapas</option>
+                            <option value="CHIHUAHUA">Chihuahua</option>
+                            <option value="CDMX">Ciudad de México</option>
+                            <option value="COAHUILA">Coahuila</option>
+                            <option value="COLIMA">Colima</option>
+                            <option value="DURANGO">Durango</option>
+                            <option value="ESTADO DE MEXICO">Estado de México</option>
+                            <option value="GUANAJUATO">Guanajuato</option>
+                            <option value="GUERRERO">Guerrero</option>
+                            <option value="HIDALGO">Hidalgo</option>
+                            <option value="JALISCO">Jalisco</option>
+                            <option value="MICHOACAN">Michoacán</option>
+                            <option value="MORELOS">Morelos</option>
+                            <option value="NAYARIT">Nayarit</option>
+                            <option value="NUEVO LEON">Nuevo León</option>
+                            <option value="OAXACA">Oaxaca</option>
+                            <option value="PUEBLA">Puebla</option>
+                            <option value="QUERETARO">Querétaro</option>
+                            <option value="QUINTANA ROO">Quintana Roo</option>
+                            <option value="SAN LUIS POTOSI">San Luis Potosí</option>
+                            <option value="SINALOA">Sinaloa</option>
+                            <option value="SONORA">Sonora</option>
+                            <option value="TABASCO">Tabasco</option>
+                            <option value="TAMAULIPAS">Tamaulipas</option>
+                            <option value="TLAXCALA">Tlaxcala</option>
+                            <option value="VERACRUZ">Veracruz</option>
+                            <option value="YUCATAN">Yucatán</option>
+                            <option value="ZACATECAS">Zacatecas</option>
+                          </select>
                         </div>
-                        <div class="form-group">
+
+                        <!-- <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-equalizer"></i> Entidad</label>
                           <input type="text" class="form-control" name="entidad" required tabindex="17">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-picture"></i> Foto de Perfil</label>
                           <input type="file" class="form-control" id="file" name="file" tabindex="20">
@@ -122,20 +157,21 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Paterno</label>
-                          <input type="text" class="form-control" name="ap_paterno" required tabindex="2">
+                          <input type="text" class="form-control" name="ap_paterno" required tabindex="2" style="text-transform:uppercase;" maxlength="20">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Sexo</label>
-                          <select name="sexo" id="" class="form-control" tabindex="4">
+                          <select name="sexo" class="form-control" tabindex="4" style="text-transform:uppercase;">
                             <option value="elegir">Elegir una Opcion</option>
                             <option value="Hombre">Hombre</option>
                             <option value="Mujer">Mujer</option>
+                            <option value="Mujer">Otro</option>
                           </select>
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-book"></i> Carrera</label>
-                          <select name="carrera" id="" class="form-control" value="<?php echo $sesion_usuario['carrera']; ?>" required tabindex="6">
-                            <option value="elegir"><?php echo $sesion_usuario['carrera']; ?></option>
+                          <select name="carrera" class="form-control" required tabindex="6" style="text-transform:uppercase;">
+                            <!-- <option value="elegir"><?php echo $sesion_usuario['carrera']; ?></option> -->
                             <option value="Ingeneria en Agronomia">Ingeneria en Agronomia</option>
                             <option value="Ingeneria Forestal">Ingeneria Forestal</option>
                             <option value="Infeneria en Industrias Alimentarias">Infeneria en Industrias Alimentarias</option>
@@ -147,7 +183,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-modal-window"></i> Estado Civil</label>
-                          <select name="estado_civil" id="" class="form-control" required tabindex="8">
+                          <select name="estado_civil" class="form-control" required tabindex="8" style="text-transform:uppercase;">
                             <option value="elegir"><?php echo $sesion_usuario['estado_civil']; ?></option>
                             <option value="Soltero/a">Soltero/a</option>
                             <option value="Casado/a">Casado/a</option>
@@ -159,67 +195,34 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> CURP</label>
-                          <input type="text" class="form-control" name="curp" required tabindex="10">
+                          <input type="text" class="form-control" name="curp" required tabindex="10" style="text-transform:uppercase;" maxlength="18">
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> Ciudad</label>
-                          <select name="ciudad" id="" class="form-control" required tabindex="12">
-                            <option value="elegir">Elegir una Opcion</option>
-                            <option value="Aguascalientes">Aguascalientes</option>
-                            <option value="Baja California">Baja California</option>
-                            <option value="Baja California Sur">Baja California Sur</option>
-                            <option value="Campeche">Campeche</option>
-                            <option value="Chiapas">Chiapas</option>
-                            <option value="Chihuahua">Chihuahua</option>
-                            <option value="CDMX">Ciudad de México</option>
-                            <option value="Coahuila">Coahuila</option>
-                            <option value="Colima">Colima</option>
-                            <option value="Durango">Durango</option>
-                            <option value="Estado de México">Estado de México</option>
-                            <option value="Guanajuato">Guanajuato</option>
-                            <option value="Guerrero">Guerrero</option>
-                            <option value="Hidalgo">Hidalgo</option>
-                            <option value="Jalisco">Jalisco</option>
-                            <option value="Michoacán">Michoacán</option>
-                            <option value="Morelos">Morelos</option>
-                            <option value="Nayarit">Nayarit</option>
-                            <option value="Nuevo León">Nuevo León</option>
-                            <option value="Oaxaca">Oaxaca</option>
-                            <option value="Puebla">Puebla</option>
-                            <option value="Querétaro">Querétaro</option>
-                            <option value="Quintana Roo">Quintana Roo</option>
-                            <option value="San Luis Potosí">San Luis Potosí</option>
-                            <option value="Sinaloa">Sinaloa</option>
-                            <option value="Sonora">Sonora</option>
-                            <option value="Tabasco">Tabasco</option>
-                            <option value="Tamaulipas">Tamaulipas</option>
-                            <option value="Tlaxcala">Tlaxcala</option>
-                            <option value="Veracruz">Veracruz</option>
-                            <option value="Yucatán">Yucatán</option>
-                            <option value="Zacatecas">Zacatecas</option>
-                          </select>
-                        </div>
+
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-map-marker"></i> Calle</label>
-                          <input type="text" class="form-control" name="calle" required tabindex="14">
+                          <input type="text" class="form-control" name="calle" required tabindex="12" style="text-transform:uppercase;">
                         </div>
                         <div class="form-group">
+                          <label for=""><i class="glyphicon glyphicon-equalizer"></i> Codigo Postal</label>
+                          <input type="text" class="form-control" name="codigo_postal" required tabindex="14" maxlength="5">
+                        </div>
+                        <!-- <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> Reticula</label>
                           <input type="text" class="form-control" name="reticula" required tabindex="16">
-                        </div>
+                        </div> -->
                         <!-- <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-education"></i> Nivel Escolar</label>
                           <input type="text" class="form-control" name="nivel_escolar" required>
                         </div> -->
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-lock"></i> Contraseña</label>
-                          <input type="password" class="form-control" name="contraseña" required tabindex="18">
+                          <input type="password" class="form-control" name="contraseña" required tabindex="16" maxlength="15">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-eye-close"></i> Confirmar Contraseña</label>
-                          <input type="password" class="form-control" required tabindex="19">
+                          <input type="password" class="form-control" required tabindex="17" maxlength="15">
                         </div>
                         <br>
                         <div class="form-group">
