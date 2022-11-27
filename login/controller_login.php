@@ -21,6 +21,7 @@
     //echo "usuario correcto";
     $_SESSION['u_usuario'] = $correo;
     $_SESSION['u_privilegio'] = $privilegio;
+    $_SESSION['ultimoAcceso'] = date("Y-n-j H:i:s");
     //header('Location: ../usuarios/index.php');
 
     if ($privilegio == 0) {

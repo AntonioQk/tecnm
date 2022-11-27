@@ -33,6 +33,22 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
+
+  //control de inactividad
+  $ahora = date("Y-n-j H:i:s");
+  $fechaGuardada = $_SESSION["ultimoAcceso"];
+  $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
+
+  if ($tiempo_transcurrido >= 60) {
+    //si pasaron 10 minutos o más
+    session_destroy(); // destruyo la sesión
+    header('location:../index.php'); //envío al usuario a la pag. de autenticación
+    //sino, actualizo la fecha de la sesión
+  } else {
+    $_SESSION["ultimoAcceso"] = $ahora;
+  }
+
+
 ?>
 
 
@@ -50,7 +66,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       <?php include('../layout/menu.php'); ?>
 
 
-      <!-- Content Wrapper. Contains page content -->
+      <!-- cierre sesion por inactividad -->
+      <?php if ($_SESSION["ultimoAcceso"] >= 60) {
+        echo ("<meta http-equiv='refresh' content='60'>");
+      } ?>
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -67,12 +86,19 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             <div class="panel-heading">Listado de Usuarios Activos</div>
             <div class="panel-body">
               <table class="table table-bordered table-hover table-condensed">
-                <th>Nro</th>
-                <th>Nombre Completo</th>
+                <center>
+                  <th>Nro</th>
+                </center>
+                <center>
+                  <th>Nombre Completo</th>
+                </center>
 
-                <th>Correo Institucional</th>
-                <th>Foto Perfil</th>
-                <th>Acciones</th>
+                <center>
+                  <th>Correo Institucional</th>
+                </center>
+                <center>
+                  <th>Cargo</th>
+                </center>
 
 
 
@@ -92,6 +118,16 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   $correo = $usuario['correo'];
                   $foto_perfil = $usuario['foto_perfil'];
                   $contador_usuarios = $contador_usuarios + 1;
+                  $privilegio = $usuario['cargo'];
+
+                  $rol = '';
+                  if ($privilegio == 0) {
+                    $rol = 'Administrador';
+                  } else if ($privilegio == 1) {
+                    $rol = 'Maestro';
+                  } else if ($privilegio == 2) {
+                    $rol = 'Alumno';
+                  }
                 ?>
                   <tr>
                     <td>
@@ -103,35 +139,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       <center><?php echo $correo; ?></center>
                     </td>
                     <td>
-                      <?php
-                      $caracter_a_buscar = ".";
-                      $buscar = strpos($foto_perfil, $caracter_a_buscar);
-                      if ($buscar == true) {
-                        // echo "existe foto de perfil";
-                      ?>
-                        <center>
-                          <img src="<?php echo $URL; ?>/usuarios/update_usuarios/<?php echo $foto_perfil; ?>" width="100px" alt="">
-                        </center>
-                        <?php
-                      } else {
-                        if ($sexo == "Hombre") {
-                        ?>
-                          <center>
-                            <img src="<?php echo $URL; ?>/public/images/avatar_hombre.png" width="100px" alt="">
-                          </center>
-                        <?php
-                        } else {
-                        ?>
-                          <center>
-                            <img src="<?php echo $URL; ?>/public/images/avatar_mujer.png" width="100px" alt="">
-                          </center>
-                      <?php
-                        }
-                      }
-                      ?>
-
+                      <center><?php echo $rol ?></center>
                     </td>
-                    <td><a href="update.php?id=<?php echo $fila['id']; ?>" class="btn__update">Editar</a></td>
+
                     <td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
 
 
