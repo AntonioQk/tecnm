@@ -34,7 +34,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
   $fechaGuardada = $_SESSION["ultimoAcceso"];
   $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
 
-  if ($tiempo_transcurrido >= 60) {
+  if ($tiempo_transcurrido >= 600) {
     //si pasaron 10 minutos o más
     session_destroy(); // destruyo la sesión
     header('location:../index.php'); //envío al usuario a la pag. de autenticación
@@ -59,8 +59,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- cierre sesion por inactividad -->
-        <?php if ($_SESSION["ultimoAcceso"] >= 60) {
-          echo ("<meta http-equiv='refresh' content='60'>");
+        <?php if ($_SESSION["ultimoAcceso"] >= 600) {
+          echo ("<meta http-equiv='refresh' content='600'>");
         } ?>
         <section class="content-header">
           <h1>Reporte</h1>
@@ -74,14 +74,14 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
 
                 <p>Aqui podras ver y descargar tu constancia una vez que este disponible </p>
 
-
-                <form action="reporteconstancia.php" method="POST">
+                <button class="btn btn-primary" type="submit"><a target="_blank" class="btn btn-primary" href="reporteconstancia.php"><i class="fa fa-download"></i> Descargar PDF</a></button>
+                <!-- <form action="reporteconstancia.php" method="POST">
                   <div class="row">
                     <div id="content" class="col-lg-12">
                       <button class="btn btn-primary" type="submit"><a target="_blank" class="btn btn-primary" href="reporteconstancia.php"><i class="fa fa-download"></i> Descargar PDF</a></button>
                     </div>
                   </div>
-                </form>
+                </form> -->
                 <!-- <table class="table table-bordered table-hover table-condensed">
 
                   <h2>

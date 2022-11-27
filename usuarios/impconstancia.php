@@ -37,7 +37,7 @@ if (isset($_SESSION['u_usuario'])) {
   $fechaGuardada = $_SESSION["ultimoAcceso"];
   $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
 
-  if ($tiempo_transcurrido >= 60) {
+  if ($tiempo_transcurrido >= 600) {
     //si pasaron 10 minutos o más
     session_destroy(); // destruyo la sesión
     header('location:../index.php'); //envío al usuario a la pag. de autenticación
@@ -67,8 +67,8 @@ if (isset($_SESSION['u_usuario'])) {
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- cierre sesion por inactividad -->
-        <?php if ($_SESSION["ultimoAcceso"] >= 60) {
-          echo ("<meta http-equiv='refresh' content='60'>");
+        <?php if ($_SESSION["ultimoAcceso"] >= 600) {
+          echo ("<meta http-equiv='refresh' content='600'>");
         } ?>
         <section class="content-header">
           <h1>

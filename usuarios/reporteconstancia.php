@@ -36,7 +36,7 @@ $datos_alumno = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 <h2>
 
-  <p style="text-align: center;">CONSTANCIA DE CUMPLIMIENTO DE ACTIVIDAD COMPLEMENTARIA.
+  <p style="text-align: center;">ANEXO XVI. CONSTANCIA DE CUMPLIMIENTO DE ACTIVIDAD COMPLEMENTARIA
   </p>
 </h2>
 <br>
